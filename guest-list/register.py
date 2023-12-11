@@ -1,14 +1,20 @@
 #app to register guests at a guardhouse
+from module import Guests
 import datetime
 
-def arrive():
-    #gather info on guest
-    date = input('Date: ')
-    time = input('Time: ')
-    name = input('Name: ')
-    plate = input('Plate: ')
-    reason = input('Reason: ')
+#attr list = date, time, name, plate, reason
 
-    print(f'Guest {name} has been registered in the database')
+def people():
+    print("Please register here")
 
-arrive()
+    #guests info here (date, time, plate, name, reason)
+    guest = Guests(
+        date=input('Date: '),
+        time=input('Time: '),
+        plate=input('Plate: '),
+        name=input('Name: '),
+        reason=input('Reason: '),
+        )
+    return f'Welcome {guest.name} u sucker. You arrived here at {guest.time} on {guest.date} for {guest.reason}. Your vehicle number is {guest.plate}'
+print(people())
+    
