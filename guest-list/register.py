@@ -1,7 +1,6 @@
 #app to register guests at a guardhouse
 from module import Guests
 import csv
-import time
 
 def people():
     print("Please register here")
