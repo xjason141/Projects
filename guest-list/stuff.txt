@@ -1,1 +1,9 @@
-fdf
+#appending guest dict into place.csv
+    with open('place.csv', 'a', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=insert.keys())
+        writer.writeheader()
+        writer.writerow(insert)
+
+    file.close()
+
+    
