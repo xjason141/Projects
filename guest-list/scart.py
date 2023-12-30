@@ -1,11 +1,7 @@
-import time
-from datetime import date
+import os
 
-#get current time
-t = time.localtime()
-current_time = time.strftime("%H:%M", t)
-print(current_time)
+exist = os.path.exists('C:\Users\US\Py\Projects\guest-list')
 
-#get current date
-today = date.today()
-print("Today's date:", today)
+pathing = os.path.dirname(os.path.realpath(__file__))
+
+print(exist)

@@ -30,7 +30,7 @@ def initial(): #need only to be launched once the first time to create a new csv
 
 print(initial())
 
-
+#try to use if statement. if csv exist, update rows. else create new csv 
 def updater():
     print("Please register here")
 
