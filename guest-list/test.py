@@ -1,8 +1,9 @@
 #app to register guests at a guardhouse
 from module import Guests
 import csv
+import os
 
-def initial(): #need only to be launched once the first time to create a new csv file
+def initial(): #run this if csv file does not exist
     print("Please register here")
 
     #guests info here (date, time, plate, name, id, reason)
@@ -28,10 +29,8 @@ def initial(): #need only to be launched once the first time to create a new csv
 
     return f'Welcome {guest.name} u sucker. You arrived here at {guest.time} on {guest.date} for {guest.reason}. Your vehicle number is {guest.plate}'
 
-print(initial())
 
-#try to use if statement. if csv exist, update rows. else create new csv 
-def updater():
+def updater(): #run this if csv exist or to update rows in existing csv
     print("Please register here")
 
     #guests info here (date, time, plate, name, id, reason)
@@ -56,3 +55,11 @@ def updater():
     file.close()
 
     return f'Welcome {guest.name} u sucker. You arrived here at {guest.time} on {guest.date} for {guest.reason}. Your vehicle number is {guest.plate}'
+
+#check if csv file exists
+exist = os.path.isfile('place.csv')
+
+if exist == False:
+    initial() #run this if csv does not exist
+else:
+    updater() #run this if csv exists/to update rows in existing csv
