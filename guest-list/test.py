@@ -3,7 +3,8 @@ from module import Guests
 import csv
 import os
 
-def initial(): #run this if csv file does not exist
+#run this if csv file does not exist
+def initial():
     print("Please register here")
 
     #guests info here (date, time, plate, name, id, reason)
@@ -20,17 +21,15 @@ def initial(): #run this if csv file does not exist
     insert = guest.asdict()
 
     #transfer guest info to place.csv
-    with open('place.csv', 'a', newline='') as file:
-        writer = csv.DictWriter(file, fieldnames=insert)
+    with open('place.csv', 'w', newline='') as file:
+        writer = csv.DictWriter(file, insert.keys())
         writer.writeheader()
-        writer.writerows(insert)
-
-    file.close()
+        writer.writerow(insert)
 
     return f'Welcome {guest.name} u sucker. You arrived here at {guest.time} on {guest.date} for {guest.reason}. Your vehicle number is {guest.plate}'
 
-
-def updater(): #run this if csv exist or to update rows in existing csv
+#run this if csv exist or to update rows in existing csv. CODE BELOW NEEDS FIXING
+def updater():
     print("Please register here")
 
     #guests info here (date, time, plate, name, id, reason)
@@ -61,5 +60,7 @@ exist = os.path.isfile('place.csv')
 
 if exist == False:
     initial() #run this if csv does not exist
+    print('file created. guest has been added')
 else:
     updater() #run this if csv exists/to update rows in existing csv
+    print('csv updated')
