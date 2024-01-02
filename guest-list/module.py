@@ -11,3 +11,4 @@ class Guests: #class name must always start with a capital letter
 
     def asdict(self): #method is to enable guest info to become a dict
         return {'date': self.date, 'time': self.time, 'name': self.name, 'id': self.id, 'plate': self.plate, 'reason': self.reason}
+    

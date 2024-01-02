@@ -1,8 +1,3 @@
-#app to register guests at a guardhouse
-from module import Guests
-import csv
-import os
-
 #run this if csv file does not exist
 def initial():
     print("Please register here")
@@ -26,6 +21,8 @@ def initial():
         writer.writeheader()
         writer.writerow(insert)
 
+    return f'Welcome {guest.name} u sucker. You arrived here at {guest.time} on {guest.date} for {guest.reason}. Your vehicle number is {guest.plate}'
+
 #run this if csv exist or to update rows in existing csv. SYNTAX TO UPDATE CSV FILE NEEDS FIXING.
 def updater():
     print("Please register here")
@@ -43,20 +40,10 @@ def updater():
     #transform guest info into a dict
     insert = guest.asdict()
 
-    #new guest info
-    new_info = list(insert.values())
-
     #transfer guest info to place.csv
-    with open('place.csv', 'a') as file:
-        writer = csv.writer(file)
-        writer.writerow(new_info)
+    with open('place.csv', 'a', newline='') as file:
+        writer = csv.DictWriter(file, insert.keys())
+        writer.writeheader()
+        writer.writerow(insert)
 
-#check if csv file exists
-exist = os.path.isfile('place.csv')
-
-if exist == False:
-    initial()
-    print('file created. guest has been added')
-else:
-    updater()
-    print('csv updated')
+    return f'Welcome {guest.name} u sucker. You arrived here at {guest.time} on {guest.date} for {guest.reason}. Your vehicle number is {guest.plate}'
