@@ -26,9 +26,7 @@ def initial():
         writer.writeheader()
         writer.writerow(insert)
 
-    return f'Welcome {guest.name} u sucker. You arrived here at {guest.time} on {guest.date} for {guest.reason}. Your vehicle number is {guest.plate}'
-
-#run this if csv exist or to update rows in existing csv. CODE BELOW NEEDS FIXING
+#run this if csv exist or to update rows in existing csv. SYNTAX TO UPDATE CSV FILE NEEDS FIXING.
 def updater():
     print("Please register here")
 
@@ -45,22 +43,20 @@ def updater():
     #transform guest info into a dict
     insert = guest.asdict()
 
+    #new guest info
+    new_info = list(insert.values())
+
     #transfer guest info to place.csv
-    with open('place.csv', 'a', newline='') as file:
-        writer = csv.DictWriter(file, fieldnames=insert)
-        writer.writeheader()
-        writer.writerows(insert)
-
-    file.close()
-
-    return f'Welcome {guest.name} u sucker. You arrived here at {guest.time} on {guest.date} for {guest.reason}. Your vehicle number is {guest.plate}'
+    with open('place.csv', 'a') as file:
+        writer = csv.writer(file)
+        writer.writerow(new_info)
 
 #check if csv file exists
 exist = os.path.isfile('place.csv')
 
 if exist == False:
-    initial() #run this if csv does not exist
+    initial()
     print('file created. guest has been added')
 else:
-    updater() #run this if csv exists/to update rows in existing csv
+    updater()
     print('csv updated')
