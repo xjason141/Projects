@@ -24,12 +24,8 @@ def initial(): #run this if csv file does not exist
         writer = csv.DictWriter(file, insert.keys())
         writer.writeheader()
         writer.writerow(insert)
-    
-    return f'Welcome {guest.name} u sucker. You arrived here at {guest.time} on {guest.date} for {guest.reason}. Your vehicle number is {guest.plate}'
 
-    #transfer guest info to place.csv
-
-#run this if csv exist or to update rows in existing csv. SYNTAX TO UPDATE CSV FILE NEEDS FIXING.
+#run this if csv exist or to update rows in existing csv.
 def updater():
     print("Please register here")
 
