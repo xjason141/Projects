@@ -1,15 +1,20 @@
 #app to register guests at a guardhouse
 from module import Guests
+import datetime
 import csv
 import os
+
+#get current date and time
+curr_time = datetime.datetime.now().strftime('%H:%M')
+curr_date = datetime.datetime.now().strftime('%d-%b-%y')
 
 def initial(): #run this if csv file does not exist
     print("Please register here")
 
     #guests info here (date, time, plate, name, id, reason)
     guest = Guests(
-        date=input('Date: '),
-        time=input('Time: '),
+        date=input('date: ' + curr_date),
+        time=input('Time: ' + curr_time),
         name=input('Name: '),
         id=input('ID: '),
         plate=input('Plate: '),
@@ -31,8 +36,8 @@ def updater():
 
     #guests info here (date, time, plate, name, id, reason)
     guest = Guests(
-        date=input('Date: '),
-        time=input('Time: '),
+        date=curr_date,
+        time=curr_time,
         name=input('Name: '),
         id=input('ID: '),
         plate=input('Plate: '),
