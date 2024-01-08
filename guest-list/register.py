@@ -13,13 +13,14 @@ def initial(): #run this if csv file does not exist
 
     #guests info here (date, time, plate, name, id, reason)
     guest = Guests(
-        date=input('date: ' + curr_date),
-        time=input('Time: ' + curr_time),
+        date=input(curr_date),
+        time=input(curr_time),
         name=input('Name: '),
         id=input('ID: '),
         plate=input('Plate: '),
         reason=input('Reason: '),
         )
+    
 
     #transform guest info into a dict
     insert = guest.asdict()
@@ -29,6 +30,8 @@ def initial(): #run this if csv file does not exist
         writer = csv.DictWriter(file, insert.keys())
         writer.writeheader()
         writer.writerow(insert)
+
+    print(f'{guest.name} arrived at {guest.time} on {guest.date}')
 
 #run this if csv exist or to update rows in existing csv.
 def updater():
@@ -54,6 +57,8 @@ def updater():
     with open('place.csv', 'a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(new_info)
+
+    print(f'{guest.name} arrived at {guest.time} on {guest.date}')
 
 #check if csv file exists
 exist = os.path.isfile('place.csv')
