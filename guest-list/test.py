@@ -60,7 +60,7 @@ def updater():
     print(f'{guest.name} arrived at {guest.time} on {guest.date}')
 
 #check if csv file exists
-exist = os.path.isfile('place.csv')
+exist = os.path.isfile('guest-list/place.csv')
 
 if exist == False:
     initial()

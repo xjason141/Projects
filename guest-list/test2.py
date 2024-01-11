@@ -1,6 +1,6 @@
-#to get rows from csv
-
+#app to register guests at a guardhouse
 import csv
+
 
 with open('guest-list/place.csv') as file:
     
@@ -8,5 +8,8 @@ with open('guest-list/place.csv') as file:
     read = csv.reader(file)
     for stuff in read:
         print(stuff)
+
+
+
 
 

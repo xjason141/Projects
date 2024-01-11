@@ -15,18 +15,17 @@ def initial(): #run this if csv file does not exist
     guest = Guests(
         date=curr_date,
         time=curr_time,
-        name=input('Name: '),
+        name=input('Name: ').capitalize(),
         id=input('ID: '),
-        plate=input('Plate: '),
-        reason=input('Reason: '),
+        plate=input('Plate: ').upper(),
+        reason=input('Reason: ').capitalize(),
         )
     
-
     #transform guest info into a dict
     insert = guest.asdict()
 
     #appending guest dict into place.csv
-    with open('place.csv', 'w', newline='') as file:
+    with open('guest-list/place.csv', 'w', newline='') as file:
         writer = csv.DictWriter(file, insert.keys())
         writer.writeheader()
         writer.writerow(insert)
@@ -41,10 +40,10 @@ def updater():
     guest = Guests(
         date=curr_date,
         time=curr_time,
-        name=input('Name: '),
+        name=input('Name: ').capitalize(),
         id=input('ID: '),
-        plate=input('Plate: '),
-        reason=input('Reason: '),
+        plate=input('Plate: ').upper(),
+        reason=input('Reason: ').capitalize(),
         )
 
     #transform guest info into a dict
@@ -54,14 +53,14 @@ def updater():
     new_info = list(insert.values())
 
     #transfer guest info to place.csv
-    with open('place.csv', 'a', newline='') as file:
+    with open('guest-list/place.csv', 'a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(new_info)
 
     print(f'{guest.name} arrived at {guest.time} on {guest.date}')
 
 #check if csv file exists
-exist = os.path.isfile('place.csv')
+exist = os.path.isfile('guest-list/place.csv')
 
 if exist == False:
     initial()
