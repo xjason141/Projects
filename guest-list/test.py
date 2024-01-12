@@ -6,7 +6,7 @@ import os
 
 #get current date and time
 curr_time = datetime.datetime.now().strftime('%H:%M')
-curr_date = datetime.datetime.now().strftime('%d-%b-%y')
+curr_date = datetime.datetime.now().strftime('%d-%b-%Y')
 
 def initial(): #run this if csv file does not exist
     print("Please register here")
