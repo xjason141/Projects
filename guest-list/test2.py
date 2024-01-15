@@ -23,10 +23,3 @@ with open('guest-list/place.csv', 'r') as file:
         print('error')
 
 print(check)
-
-
-
-
-
-
-
