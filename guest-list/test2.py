@@ -1,13 +1,41 @@
+<<<<<<< HEAD
 #app to register guests at a guardhouse
 import csv
 
 
 with open('guest-list/place.csv') as file:
+=======
+#to get rows from csv
+import csv
+
+check = []
+
+with open('guest-list/place.csv', 'r') as file:
+>>>>>>> testing
     
-    #syntax below reads everything in csv file
+    #reader object
     read = csv.reader(file)
+
+    #this syntax to skip the header in csv
+    next(file)
+
+    #append the rows in csv into a list
     for stuff in read:
-        print(stuff)
+        check.append(stuff)
+
+    
+    #checking
+    if 'Didi' in str(check):
+        print(check[0][0], check[0][2]) #get value from check using index
+    else:
+        print('error')
+
+print(check)
+
+
+
+
+
 
 
 

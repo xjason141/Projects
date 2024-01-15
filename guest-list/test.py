@@ -8,6 +8,11 @@ import os
 curr_time = datetime.datetime.now().strftime('%H:%M')
 curr_date = datetime.datetime.now().strftime('%d-%b-%Y')
 
+
+head = []
+check = []
+
+
 def initial(): #run this if csv file does not exist
     print("Please register here")
 
