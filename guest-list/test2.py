@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-#app to register guests at a guardhouse
-import csv
-
-
-with open('guest-list/place.csv') as file:
-=======
 #to get rows from csv
 import csv
 
 check = []
 
 with open('guest-list/place.csv', 'r') as file:
->>>>>>> testing
     
     #reader object
     read = csv.reader(file)
