@@ -15,6 +15,7 @@ check = []
 def initial(): #run this if csv file does not exist
     print("Please register here")
 
+    #global insert
     #guests info here (date, time, plate, name, id, reason)
     guest = Guests(
         date=curr_date,
@@ -27,3 +28,7 @@ def initial(): #run this if csv file does not exist
     
     #transform guest info into a dict
     insert = guest.asdict()
+
+    print(insert)
+
+initial()
