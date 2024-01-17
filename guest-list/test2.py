@@ -1,25 +1,29 @@
-#to get rows from csv
+from module import Guests
+import datetime
 import csv
+import os
 
+#get current date and time
+curr_time = datetime.datetime.now().strftime('%H:%M')
+curr_date = datetime.datetime.now().strftime('%d-%b-%Y')
+
+
+head = []
 check = []
 
-with open('guest-list/place.csv', 'r') as file:
+
+def initial(): #run this if csv file does not exist
+    print("Please register here")
+
+    #guests info here (date, time, plate, name, id, reason)
+    guest = Guests(
+        date=curr_date,
+        time=curr_time,
+        name=input('Name: ').capitalize(),
+        id=input('ID: '),
+        plate=input('Plate: ').upper(),
+        reason=input('Reason: ').capitalize(),
+        )
     
-    #reader object
-    read = csv.reader(file)
-
-    #this syntax to skip the header in csv
-    next(file)
-
-    #append the rows in csv into a list
-    for stuff in read:
-        check.append(stuff)
-
-    
-    #checking
-    if 'Didi' in str(check):
-        print(check[0][0], check[0][2]) #get value from check using index
-    else:
-        print('error')
-
-print(check)
+    #transform guest info into a dict
+    insert = guest.asdict()
