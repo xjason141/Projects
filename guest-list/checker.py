@@ -1,8 +1,5 @@
 import csv
 
-a = 5
-b = 5
-
 #check if guest info exist in csv
 def check():
     check = []
@@ -25,7 +22,4 @@ def check():
 
     #print(check)
 
-if a == b:
-    check()
-else:
-    print('error')
+check()

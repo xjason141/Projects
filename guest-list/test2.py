@@ -8,14 +8,10 @@ curr_time = datetime.datetime.now().strftime('%H:%M')
 curr_date = datetime.datetime.now().strftime('%d-%b-%Y')
 
 
-head = []
-check = []
-
-
-def initial(): #run this if csv file does not exist
+def updater():
+    temp = []
     print("Please register here")
 
-    #global insert
     #guests info here (date, time, plate, name, id, reason)
     guest = Guests(
         date=curr_date,
@@ -25,10 +21,18 @@ def initial(): #run this if csv file does not exist
         plate=input('Plate: ').upper(),
         reason=input('Reason: ').capitalize(),
         )
-    
+
+    print(guest.name)
     #transform guest info into a dict
-    insert = guest.asdict()
+    # insert = guest.asdict()
 
-    print(insert)
+    # for v in insert.values():
+    #     x = v.split()
+    #     temp.append(x)
+    
+    # if guest.name() in str(temp):
+    #     print('its in here')
+    # else:
+    #     print('fak no')
 
-initial()
+updater()
