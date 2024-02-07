@@ -20,9 +20,12 @@ def initial(): #run this if csv file does not exist
         reason=input('Reason: ').capitalize(),
         )
 
+    print('success')
+
+
 
 def checker():
-    id = input("ID: ")
+    id = input("ID: ").capitalize()
     #create input to check if id exist in csv.
     #if exist, run update() func
     #if not, run initial()
@@ -40,8 +43,6 @@ def checker():
     if id in str(exist):
         print('the id is in here')
     else:
-        print('does not exist')
-
-    
+        initial()
 
 checker()
