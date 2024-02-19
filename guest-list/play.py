@@ -42,7 +42,7 @@ def checker():
             exist.append(row)
     
     if id in str((exist)):
-        print(x)
+        # print(x)
         print(exist)
     else:
         print('not here')
