@@ -27,12 +27,12 @@ def initial():
 
     print('success')
 
-#checker func
+#checks if ID exists in csv
 def checker():
     id = input("ID: ").capitalize()
 
     exist = []
-    x = dict(exist)
+    # x = dict(exist)
     with open('guest-list/place.csv') as file:
         reader = csv.reader(file, delimiter=',')
 
