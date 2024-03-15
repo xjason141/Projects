@@ -6,7 +6,6 @@
 from module import Guests
 import datetime
 import csv
-import os
 
 curr_time = datetime.datetime.now().strftime('%H:%M')
 curr_date = datetime.datetime.now().strftime('%d-%b-%Y')
@@ -24,27 +23,37 @@ def initial():
         plate=input('Plate: ').upper(),
         reason=input('Reason: ').capitalize(),
         )
+    # print('success')
 
-    print('success')
+    #transform guest info into a dict
+    insert = guest.asdict()
+
+    #appending guest dict into place.csv
+    with open('guest-list/place.csv', 'w', newline='') as file:
+        writer = csv.DictWriter(file, insert.keys())
+        writer.writeheader()
+        writer.writerow(insert)
+
+    print(f'{guest.name} arrived at {guest.time} on {guest.date}')
 
 #checks if ID exists in csv
-def checker():
-    id = input("ID: ").capitalize()
+# def checker():
+#     id = input("ID: ").capitalize()
 
-    exist = []
-    # x = dict(exist)
-    with open('guest-list/place.csv') as file:
-        reader = csv.reader(file, delimiter=',')
+#     exist = []
+#     with open('guest-list/place.csv') as file:
+#         reader = csv.reader(file, delimiter=',')
+#         next(reader) #skips the header
+#         for row in reader:
+#             exist.append(row)
+#     if id in str((exist)):
+#         # print(x)
+#         print(exist)
+#     else:
+#         print('not here')
 
-        next(reader) #tskips the header
-
-        for row in reader:
-            exist.append(row)
+# checker()
     
-    if id in str((exist)):
-        # print(x)
-        print(exist)
-    else:
-        print('not here')
-
-checker()
+with open('guest-list/place.csv') as file:
+    for stuff in file:
+        print(stuff)
