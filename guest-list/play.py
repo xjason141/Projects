@@ -1,11 +1,11 @@
+from module import Guests
+import datetime
+import csv
+import json
 #creating checker func.
 #checks if guest exists or not in csv file.
 #if guest exists, return/print entire info on guest.
 #checker() not yet completed. still in creation phase.
-
-from module import Guests
-import datetime
-import csv
 
 curr_time = datetime.datetime.now().strftime('%H:%M')
 curr_date = datetime.datetime.now().strftime('%d-%b-%Y')
@@ -37,23 +37,14 @@ def initial():
     print(f'{guest.name} arrived at {guest.time} on {guest.date}')
 
 #checks if ID exists in csv
-# def checker():
-#     id = input("ID: ").capitalize()
+def checker():
+    id = input("ID: ").capitalize()
 
-#     exist = []
-#     with open('guest-list/place.csv') as file:
-#         reader = csv.reader(file, delimiter=',')
-#         next(reader) #skips the header
-#         for row in reader:
-#             exist.append(row)
-#     if id in str((exist)):
-#         # print(x)
-#         print(exist)
-#     else:
-#         print('not here')
+    exist = []
+    with open('guest-list/place.csv') as file:
+        reader = csv.reader(file, delimiter=',')
+        next(reader) #skips the header
+        for k in file:
+            print(k['name'])
 
-# checker()
-    
-with open('guest-list/place.csv') as file:
-    for stuff in file:
-        print(stuff)
+checker()
