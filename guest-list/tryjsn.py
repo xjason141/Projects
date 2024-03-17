@@ -45,16 +45,14 @@ def updater():
         )
     
     #prepare to load into json
-    to_load = []
     y = guest.asdict()
-    x = to_load.append(guest.asdict())
     with open('guest-list/guests.json', 'a') as guest_json:
-        json.dump(y, guest_json, indent=2)
+        pass
+        
 
 def retrieve():
     with open('guest-list/guests.json') as file:
         data = json.load(file)
-        print(data['name'])
     
 
 updater()
