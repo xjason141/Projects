@@ -8,10 +8,8 @@ curr_time = datetime.datetime.now().strftime('%H:%M')
 curr_date = datetime.datetime.now().strftime('%d-%b-%Y')
 
 
-def initial():
+def initial(): #initial start up if json file does not exist
     print("Please register here")
-
-    #guests info here (date, time, plate, name, id, reason)
     guest = Guests(
         date=curr_date,
         time=curr_time,
@@ -27,11 +25,10 @@ def initial():
         json.dump(y, guest_json, indent=2)
 
     # print(f'{guest.name} arrived at {guest.time} on {guest.date}')
-        
-def updater():
-    print("Please register here")
 
-    #guests info here (date, time, plate, name, id, reason)
+
+def updater():#run this if json file exists      
+    print("Please register here")
     guest = Guests(
         date=curr_date,
         time=curr_time,
@@ -41,15 +38,18 @@ def updater():
         reason=input('Reason: ').capitalize(),
         )
     
-    #prepare to load into json
-    y = guest.asdict()
-    with open('guest-list/guests.json') as guest_json:
-        pass
+    y = Guests.asdict(guest)
+    
+    #load json 1st, then dump into json
+    with open('guest-list/guests.json', 'r') as f:
+        data = json.load(f)
+        data['guests'].append(y)
+
+    with open('guest-list/guests.json', 'w') as f:
+        json.dump(data, f, indent=2)
 
 
-    with open('guest-list/guests.json', 'a') as f:
-        pass
-def retrieve():
+def retrieve():#retrieve guest info from guests.json
     with open('guest-list/guests.json') as file:
         data = json.load(file)
         pass
