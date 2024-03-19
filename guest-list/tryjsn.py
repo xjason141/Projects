@@ -22,12 +22,9 @@ def initial():
         )
     
     #prepare to load into json
-    to_load = []
-    y = guest.asdict()
-    x = to_load.append(guest.asdict())
+    y = {'guests': [Guests.asdict(guest)]}
     with open('guest-list/guests.json', 'w') as guest_json:
         json.dump(y, guest_json, indent=2)
-    
 
     # print(f'{guest.name} arrived at {guest.time} on {guest.date}')
         
@@ -46,14 +43,25 @@ def updater():
     
     #prepare to load into json
     y = guest.asdict()
-    with open('guest-list/guests.json', 'a') as guest_json:
+    with open('guest-list/guests.json') as guest_json:
         pass
-        
 
+
+    with open('guest-list/guests.json', 'a') as f:
+        pass
 def retrieve():
     with open('guest-list/guests.json') as file:
         data = json.load(file)
-    
+        pass
 
-updater()
+def run():
+    x = int(input('Number: '))
+
+    if x == 1:
+        initial()
+    if x == 2:
+        updater()
+
+run()
+
 
