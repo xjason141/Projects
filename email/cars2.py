@@ -37,8 +37,9 @@ def process_data(data):
     if item_revenue > max_revenue["revenue"]:
       item["revenue"] = item_revenue
       max_revenue = item
+
     # TODO: also handle max sales
-    if item['total_sales'] > 1500:
+    if item['total_sales'] > max_sales:
       print('The {} sales is {}'.format(item['car'],top_sales))
 
     # TODO: also handle most popular car_year
