@@ -47,12 +47,15 @@ def process_data(data):
         most = item['car']['car_model']
 
     # TODO: also handle most popular car_year
+        
+        
+        # "The most popular year was {year} with {total sales in that year} sales."
       
   summary = [
     "The {} generated the most revenue: ${}".format(
       format_car(max_revenue["car"]), max_revenue["revenue"]),
 
-    'The {} had the most sales which amounted to {} units sold'.format(most, x)
+    'The {} had the most sales: {}'.format(most, x)
 
   ]
 
