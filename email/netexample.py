@@ -88,7 +88,7 @@ def main(argv):
     # report_table = cars_dict_to_table(data)
     # reports.generate(report_file, report_title, report_summary, report_table)
 
-    # # TODO: send the PDF report as an email attachment
+    # TODO: send the PDF report as an email attachment
     # sender = "automation@example.com"
     # receiver = "{}@example.com".format(os.environ.get("USER"))
     # subject = report_title
