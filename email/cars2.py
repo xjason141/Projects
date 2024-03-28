@@ -77,13 +77,22 @@ def main(argv):
   """Process the JSON data and generate a full report out of it."""
   data = load_data("email/car_sales.json")
   summary = process_data(data)
+
   # TODO: turn this into a PDF report
   report_title = 'Monthly vehicle sales'
   report_path = 'email/tmp/cars.pdf'
   report_data = cars_dict_to_table(data)
   report_summary = '<br/>'.join(summary)
   reports.generate(report_path, report_title, report_summary, report_data)
+
   # TODO: send the PDF report as an email attachment
+  sender = "automation@example.com"
+  recipient = "<studentID>@example.com"
+  email_title = report_title
+  attch_path = report_path
+  body = '\n'.join(summary)
+  message = emails.generate(sender, recipient, email_title, body, attch_path)
+  emails.send(message)
 
 
 if __name__ == "__main__":
