@@ -45,6 +45,8 @@ def process_data(data):
   for item in data:
     if item['total_sales'] == x:
       most = item['car']['car_model']
+      the_car = item['car']['car_make']
+    
 
   # TODO: also handle most popular car_year
   for item in data:
@@ -56,9 +58,9 @@ def process_data(data):
     "The {} generated the most revenue: ${}".format(
       format_car(max_revenue["car"]), max_revenue["revenue"]),
 
-    'The {} had the most sales: {}'.format(most, x),
+    'The {} {} had the most sales: {}'.format(the_car, most, x),
 
-    ('The most popular year was {} with {} sales'.format(most_popular_sales[0][0], most_popular_sales[0][1]))
+    'The most popular year was {} with {} sales'.format(most_popular_sales[0][0], most_popular_sales[0][1])
 
   ]
 
@@ -77,6 +79,7 @@ def main(argv):
   """Process the JSON data and generate a full report out of it."""
   data = load_data("email/car_sales.json")
   summary = process_data(data)
+  print(summary)
 
   # TODO: turn this into a PDF report
   report_title = 'Monthly vehicle sales'
@@ -85,9 +88,9 @@ def main(argv):
   report_summary = '<br/>'.join(summary)
   reports.generate(report_path, report_title, report_summary, report_data)
 
-  # TODO: send the PDF report as an email attachment
+  # # TODO: send the PDF report as an email attachment
   sender = "automation@example.com"
-  recipient = "<studentID>@example.com"
+  recipient = "student@example.com"
   email_title = report_title
   attch_path = report_path
   body = '\n'.join(summary)
