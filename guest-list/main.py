@@ -51,12 +51,16 @@ def updater(filepath):
 
 
 #retrieve guest info from guests.json
-def retrieve(filepath):
-    with open(filepath, 'r') as file:
+def retrieve(pathfile):
+    with open(pathfile, 'r') as file:
         data = json.load(file)
-        # guest_id = int(input('ID: '))
-        for guests in data:
-            print(guests['date'])
+        guest_data = data['guests']
+        x = input('Name: ').capitalize()
+
+        for guests in guest_data:
+            if x == guests['name']:
+                x = guests['name']
+                print('{}\n{}'.format(guests['id'], guests['date']))
 
 
 # def run():
