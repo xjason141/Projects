@@ -65,11 +65,11 @@ def retrieve(pathfile):
 
 def main(path):
     if Path(path).is_file:
-        print('Updating file')
         updater(path)
+        return 'Updating file'
     else:
-        print("Creating new file")
         initial(path)
+        return 'New file created'
 
 
 filepath = 'guest-list/guests.json'

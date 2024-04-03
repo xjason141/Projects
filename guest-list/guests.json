@@ -39,6 +39,14 @@
       "id": "343424",
       "plate": "454321",
       "reason": "Testings"
+    },
+    {
+      "date": "03-Apr-2024",
+      "time": "18:01",
+      "name": "Toto",
+      "id": "1234466",
+      "plate": "SDF676",
+      "reason": "Finalling"
     }
   ]
 }
