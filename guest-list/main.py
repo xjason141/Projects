@@ -1,6 +1,7 @@
 from module import Guests
 import datetime
 import json
+from pathlib import Path
 
 #try using json instead of csv
 
@@ -40,8 +41,7 @@ def updater(filepath):
         )
     
     y = Guests.asdict(guest)
-    
-    #load json 1st, then dump into json
+
     with open(filepath, 'r') as f:
         data = json.load(f)
         data['guests'].append(y)
@@ -60,20 +60,17 @@ def retrieve(pathfile):
         for guests in guest_data:
             if x == guests['name']:
                 x = guests['name']
-                print('{}\n{}'.format(guests['id'], guests['date']))
+                print('{}\n{}\n{}\n{}'.format(guests['date'], guests['name'], guests['id'], guests['plate']))
 
 
-# def run():
-#     filepath = 'guest-list/guests.json'
-#     x = int(input('Number: '))
+def main(path):
+    if Path(path).is_file:
+        print('Updating file')
+        updater(path)
+    else:
+        print("Creating new file")
+        initial(path)
 
-#     if x == 1:
-#         initial(filepath)
-#     if x == 2:
-#         updater(filepath)
-
-# run()
 
 filepath = 'guest-list/guests.json'
-
-retrieve(filepath)
+main(filepath)
