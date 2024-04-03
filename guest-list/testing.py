@@ -1,6 +1,5 @@
 import json
 
-x = 'guest-list/guests.json'
 
 
 def retrieve(pathfile):
@@ -14,4 +13,6 @@ def retrieve(pathfile):
                 x = guests['name']
                 print('{}\n{}'.format(guests['id'], guests['date']))
 
+
+x = 'guest-list/guests.json'
 retrieve(x)
