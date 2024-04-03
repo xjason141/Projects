@@ -23,6 +23,22 @@
       "id": "656565",
       "plate": "KDK533",
       "reason": "Napping"
+    },
+    {
+      "date": "02-Apr-2024",
+      "time": "17:09",
+      "name": "Momo",
+      "id": "5454545",
+      "plate": "GHF454",
+      "reason": "Testing"
+    },
+    {
+      "date": "02-Apr-2024",
+      "time": "17:23",
+      "name": "Nono",
+      "id": "343424",
+      "plate": "454321",
+      "reason": "Testings"
     }
   ]
 }

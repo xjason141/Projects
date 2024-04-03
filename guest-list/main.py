@@ -8,7 +8,8 @@ curr_time = datetime.datetime.now().strftime('%H:%M')
 curr_date = datetime.datetime.now().strftime('%d-%b-%Y')
 
 
-def initial(): #initial start up if json file does not exist
+#initial start up if json file does not exist
+def initial(filepath):
     print("Please register here")
     guest = Guests(
         date=curr_date,
@@ -21,13 +22,13 @@ def initial(): #initial start up if json file does not exist
     
     #prepare to load into json
     y = {'guests': [Guests.asdict(guest)]}
-    with open('guest-list/guests.json', 'w') as guest_json:
+    with open(filepath, 'w') as guest_json:
         json.dump(y, guest_json, indent=2)
-
     # print(f'{guest.name} arrived at {guest.time} on {guest.date}')
 
 
-def updater():#run this if json file exists      
+#run this if json file exists 
+def updater(filepath):     
     print("Please register here")
     guest = Guests(
         date=curr_date,
@@ -41,27 +42,34 @@ def updater():#run this if json file exists
     y = Guests.asdict(guest)
     
     #load json 1st, then dump into json
-    with open('guest-list/guests.json', 'r') as f:
+    with open(filepath, 'r') as f:
         data = json.load(f)
         data['guests'].append(y)
 
-    with open('guest-list/guests.json', 'w') as f:
+    with open(filepath, 'w') as f:
         json.dump(data, f, indent=2)
 
 
-def retrieve():#retrieve guest info from guests.json
-    with open('guest-list/guests.json') as file:
+#retrieve guest info from guests.json
+def retrieve(filepath):
+    with open(filepath, 'r') as file:
         data = json.load(file)
-        pass
-
-def run():
-    x = int(input('Number: '))
-
-    if x == 1:
-        initial()
-    if x == 2:
-        updater()
-
-run()
+        # guest_id = int(input('ID: '))
+        for guests in data:
+            print(guests['date'])
 
 
+# def run():
+#     filepath = 'guest-list/guests.json'
+#     x = int(input('Number: '))
+
+#     if x == 1:
+#         initial(filepath)
+#     if x == 2:
+#         updater(filepath)
+
+# run()
+
+filepath = 'guest-list/guests.json'
+
+retrieve(filepath)
