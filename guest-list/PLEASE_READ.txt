@@ -1,0 +1,8 @@
+19/2/2024
+1. Current workflow: If csv doesnt exist, run initial() > else: run updater()
+2. Checker func should be a separate func. Should serve as func to retrieve existing guest info. Not completed yet.
+
+5/4/2024
+1. main.py is now the main app. No longer using csv, using json instead.
+2. place.csv and register.py are no longer used.
+3. need to make unit tests for main.py and module.py.
