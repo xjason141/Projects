@@ -19,6 +19,7 @@ def initial(filepath):
         id=input('ID: ' ),
         plate=input('Plate: ').upper(),
         reason=input('Reason: ').capitalize(),
+        address=input('Address: ')
         )
     
     #prepare to load into json
@@ -38,6 +39,7 @@ def updater(filepath):
         id=input('ID: ' ),
         plate=input('Plate: ').upper(),
         reason=input('Reason: ').capitalize(),
+        address=input('Address: ')
         )
     
     y = Guests.asdict(guest)
