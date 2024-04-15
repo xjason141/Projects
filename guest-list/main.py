@@ -64,6 +64,7 @@ def retrieve(pathfile):
                 print('{}\n{}\n{}\n{}\n{}'.format(guests['date'], guests['name'], guests['id'], guests['plate'], guests['address']))
 
 
+#create new json or update existing json
 def options(filepath):
     if os.path.exists(filepath):
         updater(filepath)
