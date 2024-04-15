@@ -63,14 +63,15 @@ def retrieve(pathfile):
                 print('{}\n{}\n{}\n{}'.format(guests['date'], guests['name'], guests['id'], guests['plate']))
 
 
-def main(path):
-    if Path(path).is_file:
-        updater(path)
+def main():
+    filepath = 'guest-list/guests.json'
+    if Path(filepath).is_file:
+        updater(filepath)
         print('Updating file')
     else:
-        initial(path)
+        initial(filepath)
         print('New file created')
 
 
-filepath = 'guest-list/guests.json'
-main(filepath)
+if __name__ == '__main__':
+    main()
