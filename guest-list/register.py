@@ -19,6 +19,7 @@ def initial(): #run this if csv file does not exist
         id=input('ID: '),
         plate=input('Plate: ').upper(),
         reason=input('Reason: ').capitalize(),
+        address=input('Address: ')
         )
     
     #transform guest info into a dict
@@ -47,6 +48,7 @@ def updater():
         id=input('ID: '),
         plate=input('Plate: ').upper(),
         reason=input('Reason: ').capitalize(),
+        address=input('Address: ')
         )
     
     insert = guest.asdict() #transform guest info into a dict

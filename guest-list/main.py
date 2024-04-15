@@ -2,8 +2,8 @@ from module import Guests
 import datetime
 import json
 from pathlib import Path
+import os
 
-#try using json instead of csv
 
 curr_time = datetime.datetime.now().strftime('%H:%M')
 curr_date = datetime.datetime.now().strftime('%d-%b-%Y')
@@ -65,9 +65,8 @@ def retrieve(pathfile):
                 print('{}\n{}\n{}\n{}'.format(guests['date'], guests['name'], guests['id'], guests['plate']))
 
 
-def main():
-    filepath = 'guest-list/guests.json'
-    if Path(filepath).is_file:
+def main(filepath):
+    if os.path.exists(filepath):
         updater(filepath)
         print('Updating file')
     else:
@@ -75,5 +74,6 @@ def main():
         print('New file created')
 
 
+filepath = 'guest-list/guests.json'
 if __name__ == '__main__':
-    main()
+    main(filepath)
