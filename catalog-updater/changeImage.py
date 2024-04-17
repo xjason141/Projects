@@ -4,11 +4,12 @@ import os
 from PIL import Image
 
 img_path = 'catalog-updater/supplier-data/images'
-new_dir = r'catalog-updater/supplier-data/converted/'
+# new_dir = r'catalog-updater/supplier-data/converted/'
+save_point = 'catalog-updater/supplier-data/images/'
 
 
-if not os.path.exists(new_dir):
-    os.makedirs(new_dir)
+if not os.path.exists(save_point):
+    os.makedirs(save_point)
 
 
 for img in os.listdir(img_path):
@@ -16,6 +17,6 @@ for img in os.listdir(img_path):
         name = img[:-4]
 
         with Image.open(img_path + '/' + img) as pics:
-            new_pic = pics.resize((600,500)).convert('RGB')
+            new_pic = pics.resize((600,400)).convert('RGB')
             print('Processing ' + str(img) + '...')
-            new_pic.save(new_dir + name + '.jpeg')
+            new_pic.save(save_point + name + 'jpeg')
