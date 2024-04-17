@@ -1,6 +1,6 @@
 1. Fourth mini project for the final course.
 2. Write a script that summarizes and processes sales data into different categories.
-    a. size: 3000x2000 to 600x500 pixel
+    a. size: 3000x2000 to 600x400 pixel
     b. format: .TIFF to .JPEG
     c. do this in changeImage.py. add shebang line.
     d. Note: The raw images from images subdirectory contains alpha transparency layers. Convert RGBA 4-channel to RGB 3-channel before processing images. 
