@@ -5,4 +5,5 @@
 5/4/2024
 1. main.py is now the main app. No longer using csv, using json instead.
 2. place.csv and register.py are no longer used.
-3. need to make unit tests for main.py and module.py.
+3. NEED to fix try except in main.py.
+4. need to make unit tests for main.py and module.py. - PUT ASIDE FOR NOW.
