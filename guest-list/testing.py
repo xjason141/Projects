@@ -11,6 +11,7 @@ curr_date = datetime.datetime.now().strftime('%d-%b-%Y')
 #initial start up if json file does not exist
 def initial(filepath):
     print("Please register here")
+
     try:
         guest = Guests(
             date=curr_date,
@@ -21,18 +22,21 @@ def initial(filepath):
             reason=input('Reason: ').capitalize(),
             address=input('Address: ')
             )
-        
+        if len(str(guest.id)) < 12:
+            print('ID too short')
+        if len(str(guest.id)) > 12:
+            print('ID too long')
         #prepare to load into json
-        guest_id = str(guest.id)
-        y = {'guests': [Guests.asdict(guest)]}
-        # with open(filepath, 'w') as guest_json:
-        #     json.dump(y, guest_json, indent=2)
-        # print(f'{guest.name} arrived at {guest.time} on {guest.date} going to {guest.address}')
-
+            # y = {'guests': [Guests.asdict(guest)]}
+            # with open(filepath, 'w') as guest_json:
+            #     json.dump(y, guest_json, indent=2)    
     except ValueError as error:
-        print(type(error).__name__)
-    except len(str(guest.id)) < 12:
-        print('Invalid ID. ID too short.')
+        print(type(error).__name__ + ': Invalid ID.')
+    
+    y = {'guests': [Guests.asdict(guest)]}
+    with open(filepath, 'w') as guest_json:
+        json.dump(y, guest_json, indent=2)    
+
 
 
 filepath = 'guest-list/guests.json'
