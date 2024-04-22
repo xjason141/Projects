@@ -26,6 +26,7 @@ def initial(filepath):
         y = {'guests': [Guests.asdict(guest)]}
         with open(filepath, 'w') as guest_json:
             json.dump(y, guest_json, indent=2)
+        print('New file created. Guest updated.')
             
     except ValueError as error:
         print(type(error).__name__ + ': Invalid ID.')
@@ -57,6 +58,7 @@ def updater(filepath):
 
         with open(filepath, 'w') as f:
             json.dump(data, f, indent=2)
+        print('Guest updated.')
 
     except ValueError as error:
         print(type(error).__name__ + ': Invalid ID.')
@@ -87,11 +89,9 @@ def retrieve(pathfile):
 def options(filepath):
     if os.path.exists(filepath):
         updater(filepath)
-        print('Guest updated.')
     else:
         initial(filepath)
-        print('New file created.')
-        print('Guest updated.')
+        
 
 def main(filepath):
     one = ('Opt 1: Update')
