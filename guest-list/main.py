@@ -92,7 +92,6 @@ def options(filepath):
     else:
         initial(filepath)
         
-
 def main(filepath):
     one = ('Opt 1: Update')
     two = ('Opt 2: Retrieve')
