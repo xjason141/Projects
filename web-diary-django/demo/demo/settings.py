@@ -32,11 +32,12 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.auth', #authentication sys
+    'django.contrib.contenttypes', #framework for content types
+    'django.contrib.sessions', # sessions framework
+    'django.contrib.messages', #messaging framework
+    'django.contrib.staticfiles', #framework for managing static files
+    'polls.apps.PollsConfig'
 ]
 
 MIDDLEWARE = [
