@@ -26,6 +26,15 @@
       "plate": "KLI123",
       "reason": "Sleep",
       "address": "12, 12th st"
+    },
+    {
+      "date": "27-Apr-2024",
+      "time": "15:21",
+      "name": "Adudu",
+      "id": 910101121455,
+      "plate": "JGL453",
+      "reason": "Slept",
+      "address": "12, 12 st"
     }
   ]
 }
