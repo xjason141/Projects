@@ -97,15 +97,20 @@ def options(filepath):
         initial(filepath)
         
 def main(filepath):
-    one = ('Opt 1: Update')
-    two = ('Opt 2: Retrieve')
-    print(one + ', ' + two)
-    decision = int(input("Press 1 or 2: "))
+    options = ('Opt 1: Update', 'Opt 2: Retrieve')
+    print(','.join(options))
 
-    if decision == 1:
-        options(filepath)
-    else:
-        retrieve(filepath)
+    decision = int(input("Press 1 or 2: "))
+    try:
+        while decision !=1 or decision !=2:
+            print('Invalid option')
+            decision = int(input("Press 1 or 2: "))
+        if decision == 1:
+            print('opt 1')
+        else:
+            print('opt 2')
+    except ValueError as error:
+        print(type(error).__name__ + ': Please choose either option 1 or 2.')
 
 filepath = 'guest-list/guests.json'
 if __name__ == '__main__':
