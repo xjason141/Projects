@@ -97,18 +97,18 @@ def options(filepath):
         initial(filepath)
         
 def main(filepath):
-    options = ('Opt 1: Update', 'Opt 2: Retrieve')
-    print(','.join(options))
+    to_do = ('Opt 1: Update', 'Opt 2: Retrieve')
+    print(', '.join(to_do))
 
     decision = int(input("Press 1 or 2: "))
     try:
-        while decision !=1 or decision !=2:
+        while decision !=1 and decision !=2:
             print('Invalid option')
             decision = int(input("Press 1 or 2: "))
         if decision == 1:
-            print('opt 1')
+            options(filepath)
         else:
-            print('opt 2')
+            retrieve(filepath)
     except ValueError as error:
         print(type(error).__name__ + ': Please choose either option 1 or 2.')
 
