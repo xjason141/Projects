@@ -9,7 +9,6 @@ curr_date = datetime.datetime.now().strftime('%d-%b-%Y')
 #initial start up if json file does not exist
 def initial(filepath):
     print("Please register here")
-
     try:
         guest = Guests(
             date=curr_date,
@@ -20,14 +19,15 @@ def initial(filepath):
             reason=input('Reason: ').capitalize(),
             address=input('Address: ')
             )
+        
         if len(str(guest.id)) != 12:
             raise Exception
+        
         # prepare to load into json
         y = {'guests': [Guests.asdict(guest)]}
         with open(filepath, 'w') as guest_json:
             json.dump(y, guest_json, indent=2)
-        print('New file created. Guest updated.')
-            
+        print('New file created. Guest updated.')     
     except ValueError as error:
         print(type(error).__name__ + ': Invalid ID.')
     except Exception:
@@ -36,7 +36,6 @@ def initial(filepath):
 #run this if json file exists 
 def updater(filepath):     
     print("Please register here")
-
     try:
         guest = Guests(
             date=curr_date,
@@ -52,34 +51,39 @@ def updater(filepath):
             raise Exception
         
         y = Guests.asdict(guest)
+
         with open(filepath, 'r') as f:
             data = json.load(f)
             data['guests'].append(y)
-
         with open(filepath, 'w') as f:
             json.dump(data, f, indent=2)
         print('Guest updated.')
-
     except ValueError as error:
         print(type(error).__name__ + ': Invalid ID.')
     except Exception:
         print('ID must include only 12 characters.')
 
 #retrieve guest info from guests.json
-def retrieve(pathfile):
-    with open(pathfile, 'r') as file:
+def retrieve(filepath):
+    with open(filepath, 'r') as file:
         try:
             data = json.load(file)
             guest_data = data['guests']
+            count = 0
             x = int(input('ID: '))
-
+            
             if len(str(x)) != 12:
                 raise Exception
-
+            
             for guests in guest_data:
                 if x == guests['id']:
                     x = guests['id']
-                    print('Guest info:\n{}\n{}\n{}\n{}\n{}'.format(guests['date'], guests['name'], guests['id'], guests['plate'], guests['address']))
+                    print('Guest info:\n{}\n{}\n{}\n{}\n{}'.format(guests['date'], guests['name'], 
+                                                                    guests['id'], guests['plate'], guests['address']))
+                else:
+                    count += 1
+                if count == len(guest_data):
+                    print('no guest')
         except ValueError as error:
             print(type(error).__name__ + ': Invalid ID.')
         except Exception:

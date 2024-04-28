@@ -35,6 +35,15 @@
       "plate": "JGL453",
       "reason": "Slept",
       "address": "12, 12 st"
+    },
+    {
+      "date": "28-Apr-2024",
+      "time": "19:54",
+      "name": "Hoho",
+      "id": 990011135300,
+      "plate": "JGL123",
+      "reason": "Sleep",
+      "address": "16, 156th st"
     }
   ]
 }
