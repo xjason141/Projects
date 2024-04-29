@@ -9,6 +9,5 @@ for files in os.listdir('data/feedback/'):
         for lines in file:
             n_dict[n_keys[count]] = lines.rstrip()
             count += 1
-    # print(n_dict)
     response = requests.post('http://<corpweb-external-IP>/feedback', json=n_dict)
 print(response.status_code)
