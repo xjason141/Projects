@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
+{% block styles %}<link rel="stylesheet" href="{{url_for('static', filename='user.css')}}">{% endblock %}
+
+{% block title %}
+<title>{{ name }}'s Diary</title>
+{% endblock %}
+
 {% block content %}
-    This is the user's homepage.
+    <h1>This is {{ name }}'s homepage.</h1>
 {% endblock %}
