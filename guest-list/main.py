@@ -28,6 +28,7 @@ def initial(filepath):
         with open(filepath, 'w') as guest_json:
             json.dump(y, guest_json, indent=2)
         print('New file created. Guest updated.')     
+
     except ValueError as error:
         print(type(error).__name__ + ': Invalid ID.')
     except Exception:
@@ -55,9 +56,11 @@ def updater(filepath):
         with open(filepath, 'r') as f:
             data = json.load(f)
             data['guests'].append(y)
+
         with open(filepath, 'w') as f:
             json.dump(data, f, indent=2)
         print('Guest updated.')
+
     except ValueError as error:
         print(type(error).__name__ + ': Invalid ID.')
     except Exception:
@@ -78,12 +81,12 @@ def retrieve(filepath):
             for guests in guest_data:
                 if x == guests['id']:
                     x = guests['id']
-                    print('Guest info:\n{}\n{}\n{}\n{}\n{}'.format(guests['date'], guests['name'], 
-                                                                    guests['id'], guests['plate'], guests['address']))
+                    print('Guest info:\n{}\n{}\n{}\n{}\n{}'.format(guests['date'], guests['name'],guests['id'], guests['plate'], guests['address']))
                 else:
                     count += 1
                 if count == len(guest_data):
-                    print('no guest')
+                    print('Guest does not exist')
+
         except ValueError as error:
             print(type(error).__name__ + ': Invalid ID.')
         except Exception:
@@ -109,6 +112,7 @@ def main(filepath):
             options(filepath)
         else:
             retrieve(filepath)
+            
     except ValueError as error:
         print(type(error).__name__ + ': Please choose either option 1 or 2.')
 

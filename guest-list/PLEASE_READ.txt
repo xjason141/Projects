@@ -7,3 +7,7 @@
 2. place.csv and register.py are no longer used.
 3. NEED to fix try except in main.py.
 4. need to make unit tests for main.py and module.py. - PUT ASIDE FOR NOW.
+
+1/5/2024
+1. Main functions should be completed by now.
+2. Must decide on next step: A. Learn to make unit tests or B. Learn to make UI for app.
