@@ -1,3 +1,5 @@
+#bug fix has not been merged with main.py. PLEASE REFER NUMS.PY FIRST BEFORE MERGING.
+
 from module import Guests
 import datetime
 import json
