@@ -5,7 +5,7 @@ class Guests: #class name must always start with a capital letter
         self.date = date
         self.time = time
         self.name = name
-        self.id = int(id)
+        self.id = id
         self.plate = plate
         self.reason = reason
         self.address = address
