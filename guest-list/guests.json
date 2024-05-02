@@ -62,6 +62,15 @@
       "plate": "NBM123",
       "reason": "Sleep",
       "address": "12,12th st"
+    },
+    {
+      "date": "02-May-2024",
+      "time": "21:41",
+      "name": "Tester",
+      "id": "091234567899",
+      "plate": "LKK123",
+      "reason": "Sleep",
+      "address": "12,12th st"
     }
   ]
 }
