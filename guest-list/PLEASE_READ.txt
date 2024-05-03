@@ -14,3 +14,5 @@
 
 2/5/2024
 1. module.py has been modified to handle exceptions for initial() and updater().
+2. main.py is mostly completed. probably needs more testing/cleanup.
+3. might need to learn how to make a ui for the app.
