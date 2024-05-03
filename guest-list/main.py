@@ -94,6 +94,7 @@ def main(filepath):
     try:
         while decision !=1 and decision !=2:
             print('Invalid option')
+            print(', '.join(to_do))
             decision = int(input("Press 1 or 2: "))
         if decision == 1:
             options(filepath)

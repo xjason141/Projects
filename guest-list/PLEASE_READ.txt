@@ -11,3 +11,6 @@
 1/5/2024
 1. Main functions should be completed by now.
 2. Must decide on next step: A. Learn to make unit tests or B. Learn to make UI for app.
+
+2/5/2024
+1. module.py has been modified to handle exceptions for initial() and updater().
