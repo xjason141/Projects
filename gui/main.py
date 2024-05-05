@@ -1,19 +1,24 @@
 from customtkinter import *
-
+from PIL import Image, ImageTk
 
 set_appearance_mode('dark')
-set_default_color_theme('dark-blue')
 
 root = CTk()
-root.geometry('500x350')
+root.title('Guest List')
+root.geometry('750x550')
+root.minsize(750,550)
+root.config(bg='#31464c')
+# root.grid_columnconfigure(0, weight=1)
+# root.grid_rowconfigure(0, weight=1)
+# root.grid_rowconfigure(1, weight=1)
+# root.grid_rowconfigure(2, weight=1)
 
 def login():
-    print('hello')
+    print('Login Successfull')
 
-frame = CTkFrame(master=root)
-frame.pack(pady=20, padx=30, fill='both', expand=True)
+frame = CTkFrame(master=root, width=300, height=150, corner_radius=30, bg_color='white')
+# frame.grid(column=0, row=1)
+frame.place(rely=0.5, relx=0.5, anchor=CENTER)
 
-button = CTkButton(master=frame, corner_radius=34, fg_color='transparent')
-button.pack(padx=50, pady=50, expand=True)
 
 root.mainloop()
