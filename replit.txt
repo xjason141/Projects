@@ -1,5 +1,0 @@
-This file is created using replit.com.
-To run/execute any file, use commands from the shell window on the 2nd pane.
-Can't use the "Run" button on replit as I have not configured it. Honestly, I don't know how to.
-I've looked up guides and the solutions provided were not practical.
-Using the shell has been the solution. And it works so I don't mind.
