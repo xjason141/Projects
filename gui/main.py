@@ -10,28 +10,46 @@ root.minsize(1000,650)
 root.maxsize(1000,650)
 root.config(bg='#31464c')
 root.grid_columnconfigure(0, weight=1)
+root.grid_columnconfigure(1, weight=1)
+root.grid_columnconfigure(2, weight=1)
 root.grid_rowconfigure(0, weight=1)
 root.grid_rowconfigure(1, weight=1)
 root.grid_rowconfigure(2, weight=1)
 
+
 def login():
     print('Login Successfull')
 
-# def checkbox_event():
-#     print("checkbox toggled, current value:", check_var.get())
 
-frame = CTkFrame(root, width=450, height=250, corner_radius=30, fg_color='transparent', bg_color='#ABB0B8')
-frame.place(rely=0.5, relx=0.5, anchor=CENTER)
+#welcome frame
+frame = CTkFrame(root, width=500, height=300, corner_radius=30, fg_color='transparent', bg_color='#ABB0B8')
+frame.grid(column=1, row=1, sticky=NSEW)
 frame.grid_columnconfigure(0, weight=1)
+frame.grid_columnconfigure(1, weight=1)
+frame.grid_columnconfigure(2, weight=1)
 frame.grid_rowconfigure(0, weight=1)
 frame.grid_rowconfigure(1, weight=1)
 frame.grid_rowconfigure(2, weight=1)
 
-# label_frame = CTkFrame(frame, width=35, height=15, fg_color='blue', bg_color='#ABB0B8', text=)
-# label_frame.place(y=10, x=10)
+#label frame
+# label_frame = CTkFrame(root.frame, width=100, height=100, fg_color='transparent', bg_color='black')
+# label_frame.grid(column=1, row=1)
 
-label = CTkLabel(frame, width=40, height=40, fg_color='transparent', bg_color='#ABB0B8', text_color='black', text='Welcome', font=('sans', 20))
-label.place(relx=0.5, y=30, anchor=CENTER)
+
+#welcome label
+label = CTkLabel(frame, bg_color='#ABB0B8', text_color='black', text='Welcome', font=('sans', 20))
+label.grid(column=1, row=0, sticky=N, pady=(20,0))
+
+
+
+
+# def checkbox_event():
+#     print("checkbox toggled, current value:", check_var.get())
+
+
+#login info
+# user_label = CTkLabel(frame, width=40, height=40, fg_color='transparent')
+# user_label.grid(row=1, column=0)
 
 
 # button = CTkButton(frame, width=30, height=20, text='Login', border_spacing=5)
