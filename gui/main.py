@@ -1,5 +1,4 @@
 from customtkinter import *
-from PIL import Image, ImageTk
 
 set_appearance_mode('dark')
 
@@ -30,10 +29,6 @@ frame.grid_columnconfigure(2, weight=1)
 frame.grid_rowconfigure(0, weight=1)
 frame.grid_rowconfigure(1, weight=1)
 frame.grid_rowconfigure(2, weight=1)
-
-#label frame
-# label_frame = CTkFrame(root.frame, width=100, height=100, fg_color='transparent', bg_color='black')
-# label_frame.grid(column=1, row=1)
 
 
 #welcome label
