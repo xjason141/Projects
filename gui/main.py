@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from customtkinter import *
 
 set_appearance_mode('dark')
