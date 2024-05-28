@@ -1,18 +1,24 @@
-19/2/2024
+19/02/2024
 1. Current workflow: If csv doesnt exist, run initial() > else: run updater()
 2. Checker func should be a separate func. Should serve as func to retrieve existing guest info. Not completed yet.
 
-5/4/2024
+5/04/2024
 1. main.py is now the main app. No longer using csv, using json instead.
 2. place.csv and register.py are no longer used.
 3. NEED to fix try except in main.py.
 4. need to make unit tests for main.py and module.py. - PUT ASIDE FOR NOW.
 
-1/5/2024
+1/05/2024
 1. Main functions should be completed by now.
 2. Must decide on next step: A. Learn to make unit tests or B. Learn to make UI for app.
 
-2/5/2024
+2/05/2024
 1. module.py has been modified to handle exceptions for initial() and updater().
 2. main.py is mostly completed. probably needs more testing/cleanup.
 3. might need to learn how to make a ui for the app.
+
+28/05/2024
+1. Primary functions needed for the app to work has been completed.
+2. NOTE: App may be not be clear of bugs due to limited testing.
+3. Currently working on learning to create UI for the app.
+4. UI for app is currently being done in a different directory i.e: Projects/gui.
