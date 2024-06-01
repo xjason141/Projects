@@ -71,6 +71,15 @@
       "plate": "LKK123",
       "reason": "Sleep",
       "address": "12,12th st"
+    },
+    {
+      "date": "01-Jun-2024",
+      "time": "14:39",
+      "name": "Vuivui",
+      "id": "332200554499",
+      "plate": "JFK123",
+      "reason": "Main",
+      "address": "12, 23st"
     }
   ]
 }
