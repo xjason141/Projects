@@ -5,3 +5,6 @@
 03/June/2024
 1. Deleted main.py that used customtkinter.
 2. test_tk.py is renamed to app.py.
+
+07/June/2024
+1. Learn how to store login info using sqlite
