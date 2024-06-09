@@ -1,21 +1,33 @@
 #!/usr/bin/python3
 
+#store login info in db using sqlite
 import sqlite3 as sq
+import hashlib
 
-conn = sq.connect('test.db')
+conn = sq.connect('gui/info.db')
 cur = conn.cursor()
 
-# cur.execute(
-#     '''CREATE TABLE movies (Title, Year, Score)
-# '''
-# )
+# #creates db if one doesnt already exists
+cur.execute('''
+    CREATE TABLE IF NOT EXISTS loginInfo (
+            id INTEGER PRIMARY KEY,
+            user VARCHAR(255) NOT NULL,
+            password VARCHAR(255) NOT NULL 
+            )
+''')
+
+#set username and password
+user1, pass1 = 'didi123', hashlib.sha256('didipassword'.encode()).hexdigest()
+
+# insert info into table
+# cur.execute('INSERT INTO loginInfo (user, password) VALUES (?, ?)', (user1, pass1))
+
+# conn.commit()
 
 cur.execute(
-    '''INSERT INTO movies VALUES
-        ('Indiana Jones', 1994, 9.0),
-        ('Spiderman', 2007, 9.5)
+    '''
+    DELETE FROM loginInfo WHERE
+    id=2
 '''
 )
 conn.commit()
-
-print(cur.execute('SELECT * FROM movies').fetchall())

@@ -8,3 +8,6 @@
 
 07/June/2024
 1. Learn how to store login info using sqlite
+
+09/June/2024
+1. Using sqlite3 to create dtb.py to create a database to store login info.
