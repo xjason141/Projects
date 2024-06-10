@@ -24,10 +24,12 @@ user1, pass1 = 'didi123', hashlib.sha256('didipassword'.encode()).hexdigest()
 
 # conn.commit()
 
+x = 'didi123'
+
 cur.execute(
     '''
-    DELETE FROM loginInfo WHERE
-    id=2
+    SELECT * FROM loginInfo
 '''
 )
-conn.commit()
+y = cur.fetchall()
+print(y)

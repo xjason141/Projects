@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 from tkinter import *
 from tkinter import messagebox
-import sqlite3
+import sqlite3 as sq
+import hashlib
 
 root = Tk()
 root.title('test app')
 root.minsize(1000,650)
 root.configure(bg='#581845')
-# root.maxsize(1000,650)
 
 #main frame
 mainFrame = Frame(bg='#581845')
@@ -15,13 +15,24 @@ mainFrame.place(relx=0.5, rely=0.5, anchor=CENTER)
 
 #login func
 def login():
-    #for real life use, should use a database to store username and password login info. code below is hardcoded and only for learning purposes
-    username = 'didi'
-    password = '12345'
-    if userEntry.get()==username and passEntry.get()==password:
-        messagebox.showinfo(title='Successful Login', message='Successful Login')
+    #for practice purpose, user='didi123', password=didipassword
+
+    #using sqlite3 to store login info in database
+    conn = sq.connect('gui/info.db')
+    cur = conn.cursor()
+
+    user = userEntry.get()
+    password = passEntry.get()
+    hashed = hashlib.sha256(password.encode()).hexdigest()
+
+    cur.execute('SELECT user FROM loginInfo WHERE user=? AND password=?', (user, hashed))
+    check = cur.fetchone()
+
+    if check:
+        messagebox.showinfo(title='Success', message='User Exists')
     else:
-        messagebox.showerror(title='Invalid Login', message='Invalid username or password')
+        messagebox.showerror(title='Failed', message='Invalid Username or Password')
+
 
 #welcome text
 welcome_text = Label(mainFrame, text='Welcome', bg='#581845', fg='#ff6eeb', font=('arial', 20))
@@ -47,6 +58,7 @@ passEntry.grid(column=1, row=2, pady=5)
 #login button
 log_btn = Button(mainFrame, text='Login', bg='#581845', fg='#ff6eeb', font=('arial', 11), command=login)
 log_btn.grid(column=0, row=3, columnspan=2, pady=12)
+
 
 
 if __name__ == '__main__':
