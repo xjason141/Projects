@@ -91,13 +91,11 @@ def guestWindow():
     dateEntry.insert(0, curr_date)
     dateEntry.grid(column=1, row=0, pady=5)
 
-
     ### id ###
     id = Label(guestFrame, text='ID', font=('arial', 11), bg='#e8c5ff')
     id.grid(column=0, row=1, padx=15)
     idEntry = Entry(guestFrame, textvariable=StringVar())
     idEntry.grid(column=1, row=1, pady=5)
-
 
     ### time ###
     time = Label(guestFrame, text='Time', font=('arial', 11), bg='#e8c5ff')
@@ -106,13 +104,11 @@ def guestWindow():
     timeEntry.insert(0, curr_time)
     timeEntry.grid(column=3, row=0, pady=5)
 
-
     ### name ###
     name = Label(guestFrame, text='Name', font=('arial', 11), bg='#e8c5ff')
     name.grid(column=0, row=2, padx=15)
     nameEntry = Entry(guestFrame, textvariable=StringVar())
     nameEntry.grid(column=1, row=2, pady=5)
-
 
     ### address ###
     address = Label(guestFrame, text='Address', font=('arial', 11), bg='#e8c5ff')
@@ -120,22 +116,17 @@ def guestWindow():
     addressEntry = Entry(guestFrame, textvariable=StringVar())
     addressEntry.grid(column=1, row=3, pady=5)
 
-
     ### plate number ###
     plate = Label(guestFrame, text='Plate Number', font=('arial', 11), bg='#e8c5ff')
     plate.grid(column=2, row=1, padx=(120,15))
     plateEntry = Entry(guestFrame, textvariable=StringVar())
     plateEntry.grid(column=3, row=1, pady=5)
 
-
     ### reason ###
     reason = Label(guestFrame, text='Reason', font=('arial', 11), bg='#e8c5ff')
     reason.grid(column=2, row=2, padx=(120,15))
     reasonEntry = Entry(guestFrame, textvariable=StringVar())
     reasonEntry.grid(column=3, row=2, pady=5)
-
-
-
 
     #logout button
     # logoutBtn = Button(guestFrame, text='Logout', command=mainWindow)

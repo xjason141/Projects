@@ -21,15 +21,5 @@ user1, pass1 = 'didi123', hashlib.sha256('didipassword'.encode()).hexdigest()
 
 # insert info into table
 # cur.execute('INSERT INTO loginInfo (user, password) VALUES (?, ?)', (user1, pass1))
-
 # conn.commit()
 
-x = 'didi123'
-
-cur.execute(
-    '''
-    SELECT * FROM loginInfo
-'''
-)
-y = cur.fetchall()
-print(y)
