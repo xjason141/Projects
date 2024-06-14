@@ -3,7 +3,7 @@ from tkinter import *
 from tkinter import messagebox
 import sqlite3 as sq
 import hashlib
-import datetime
+import datetime as dt
 
 #main app
 root = Tk()
@@ -72,9 +72,8 @@ def mainWindow():
 
 #guest info window
 def guestWindow():
-
-    curr_time = datetime.datetime.now().strftime('%H:%M')
-    curr_date = datetime.datetime.now().strftime('%d-%b-%Y')
+    curr_date = dt.datetime.now().strftime('%d-%b-%Y')
+    curr_time = dt.datetime.now().strftime('%H:%M')
 
     #place all widgets in here
     guestWin = Frame(root, bg='#e8c5ff')
@@ -88,7 +87,8 @@ def guestWindow():
     ### date ###
     date = Label(guestFrame, text='Date', font=('arial', 11), bg='#e8c5ff')
     date.grid(column=0, row=0, padx=15)
-    dateEntry = Entry(guestFrame, textvariable=curr_date)
+    dateEntry = Entry(guestFrame)
+    dateEntry.insert(0, curr_date)
     dateEntry.grid(column=1, row=0, pady=5)
 
 
@@ -102,7 +102,8 @@ def guestWindow():
     ### time ###
     time = Label(guestFrame, text='Time', font=('arial', 11), bg='#e8c5ff')
     time.grid(column=2, row=0, padx=(120,15))
-    timeEntry = Entry(guestFrame, textvariable=curr_time)
+    timeEntry = Entry(guestFrame)
+    timeEntry.insert(0, curr_time)
     timeEntry.grid(column=3, row=0, pady=5)
 
 
