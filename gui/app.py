@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import messagebox
 import sqlite3 as sq
 import hashlib
+import datetime
 
 #main app
 root = Tk()
@@ -72,22 +73,78 @@ def mainWindow():
 #guest info window
 def guestWindow():
 
+    curr_time = datetime.datetime.now().strftime('%H:%M')
+    curr_date = datetime.datetime.now().strftime('%d-%b-%Y')
+
     #place all widgets in here
     guestWin = Frame(root, bg='#e8c5ff')
     guestWin.grid(column=0, row=0, sticky=NSEW)
 
     #guest info Frame
-    guestFrame = Frame(guestWin, bg='#c873ff')
+    guestFrame = Frame(guestWin, bg='#e8c5ff')
     guestFrame.place(relx=0.5, rely=0.5, anchor='center')
 
+    #guests info below
+    ### date ###
+    date = Label(guestFrame, text='Date', font=('arial', 11), bg='#e8c5ff')
+    date.grid(column=0, row=0, padx=15)
+    dateEntry = Entry(guestFrame, textvariable=curr_date)
+    dateEntry.grid(column=1, row=0, pady=5)
+
+
+    ### id ###
+    id = Label(guestFrame, text='ID', font=('arial', 11), bg='#e8c5ff')
+    id.grid(column=0, row=1, padx=15)
+    idEntry = Entry(guestFrame, textvariable=StringVar())
+    idEntry.grid(column=1, row=1, pady=5)
+
+
+    ### time ###
+    time = Label(guestFrame, text='Time', font=('arial', 11), bg='#e8c5ff')
+    time.grid(column=2, row=0, padx=(120,15))
+    timeEntry = Entry(guestFrame, textvariable=curr_time)
+    timeEntry.grid(column=3, row=0, pady=5)
+
+
+    ### name ###
+    name = Label(guestFrame, text='Name', font=('arial', 11), bg='#e8c5ff')
+    name.grid(column=0, row=2, padx=15)
+    nameEntry = Entry(guestFrame, textvariable=StringVar())
+    nameEntry.grid(column=1, row=2, pady=5)
+
+
+    ### address ###
+    address = Label(guestFrame, text='Address', font=('arial', 11), bg='#e8c5ff')
+    address.grid(column=0, row=3, padx=15)
+    addressEntry = Entry(guestFrame, textvariable=StringVar())
+    addressEntry.grid(column=1, row=3, pady=5)
+
+
+    ### plate number ###
+    plate = Label(guestFrame, text='Plate Number', font=('arial', 11), bg='#e8c5ff')
+    plate.grid(column=2, row=1, padx=(120,15))
+    plateEntry = Entry(guestFrame, textvariable=StringVar())
+    plateEntry.grid(column=3, row=1, pady=5)
+
+
+    ### reason ###
+    reason = Label(guestFrame, text='Reason', font=('arial', 11), bg='#e8c5ff')
+    reason.grid(column=2, row=2, padx=(120,15))
+    reasonEntry = Entry(guestFrame, textvariable=StringVar())
+    reasonEntry.grid(column=3, row=2, pady=5)
+
+
+
+
     #logout button
-    logoutBtn = Button(guestFrame, text='Logout', command=mainWindow)
-    logoutBtn.grid(column=0, row=3, columnspan=2, pady=12)
+    # logoutBtn = Button(guestFrame, text='Logout', command=mainWindow)
+    # logoutBtn.grid(column=0, row=3, columnspan=2, pady=12)
 
     guestWin.tkraise()
 
 
-mainWindow()
+# mainWindow()
+guestWindow()
 
 if __name__ == '__main__':
     root.mainloop()
