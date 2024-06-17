@@ -14,7 +14,7 @@ root.columnconfigure(0, weight=1)
 root.rowconfigure(0, weight=1)
 
 
-#mainWindow Frame
+#main window Frame
 def mainWindow():
 
     #login function
@@ -37,11 +37,11 @@ def mainWindow():
             messagebox.showerror(title='Failed', message='Invalid Username or Password')
 
 
-    #mainWin to store all widgets
+    #main window to store login frame and widgets
     mainWin = Frame(root, bg='#581845')
     mainWin.grid(column=0, row=0, sticky=NSEW)
 
-    #put login widgets in here
+    #login widgets in here
     loginFrame = Frame(mainWin, bg='#581845')
     loginFrame.place(relx=0.5, rely=0.5, anchor=CENTER)
 
@@ -70,7 +70,28 @@ def mainWindow():
     mainWin.tkraise()
 
 
-#guest info window
+#update guest-list or search for guest info
+def selector():
+
+    #window
+    selectWIndow = Frame(root, bg='grey')
+    selectWIndow.grid(column=0, row=0, sticky=NSEW)
+
+    selectorFrame = Frame(selectWIndow, bg='grey')
+    selectorFrame.place(relx=0.5, rely=0.5, anchor='center')
+
+    #update guest list
+    toUpdate = Button(selectorFrame, text='Register Guest',command=guestWindow)
+    toUpdate.grid(column=0, row=0, padx=(0,30))
+
+    #search for guest
+    toSearch = Button(selectorFrame, text='Search for Guest', command=search)
+    toSearch.grid(column=1, row=0, padx=(30,0))    
+    
+    selectWIndow.tkraise()
+
+
+#update guest list
 def guestWindow():
     curr_date = dt.datetime.now().strftime('%d-%b-%Y')
     curr_time = dt.datetime.now().strftime('%H:%M')
@@ -135,8 +156,21 @@ def guestWindow():
     guestWin.tkraise()
 
 
+#to search guest in guest list via ID
+def search():
+
+    #window
+    searchWIn = Frame(root, bg='#c935d6')
+    searchWIn.grid(column=0, row=0, sticky=NSEW)
+
+    #frame
+    searchFrame = Frame(searchWIn, bg='#8f009b', width=50, height=50)
+    searchFrame.place(rely=0.5, relx=0.5, anchor='center')
+
+    searchWIn.tkraise()
+
 # mainWindow()
-guestWindow()
+selector()
 
 if __name__ == '__main__':
     root.mainloop()
