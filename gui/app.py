@@ -100,6 +100,10 @@ def guestWindow():
     guestWin = Frame(root, bg='#e8c5ff')
     guestWin.grid(column=0, row=0, sticky=NSEW)
 
+    #back button
+    backBtn = Button(guestWin, text='Back', command=selector, bg='#e8c5ff')
+    backBtn.grid(column=0, row=0, padx=30, pady=(30,0))
+
     #guest info Frame
     guestFrame = Frame(guestWin, bg='#e8c5ff')
     guestFrame.place(relx=0.5, rely=0.5, anchor='center')
@@ -159,17 +163,30 @@ def guestWindow():
 #to search guest in guest list via ID
 def search():
 
-    #window
-    searchWIn = Frame(root, bg='#c935d6')
+    #searcWindow
+    searchWIn = Frame(root, bg='#8f009b')
     searchWIn.grid(column=0, row=0, sticky=NSEW)
 
-    #frame
-    searchFrame = Frame(searchWIn, bg='#8f009b', width=50, height=50)
+    #back button
+    backBtn = Button(searchWIn, text='Back', command=selector, bg='#8f009b')
+    backBtn.grid(column=0, row=0, padx=30, pady=(30,0))
+
+    #searchFrame
+    searchFrame = Frame(searchWIn, bg='#8f009b')
     searchFrame.place(rely=0.5, relx=0.5, anchor='center')
+
+    #search guest entries
+    searchLabel = Label(searchFrame, text='ID', font=('arial', 11), bg='#8f009b', fg='#FFFFFF')
+    searchLabel.grid(column=0, row=0, padx=10)
+    searchEntry = Entry(searchFrame, textvariable=StringVar())
+    searchEntry.grid(column=1, row=0, padx=10)
+    searchBtn = Button(searchFrame, text='Search', font=('arial', 11))
+    searchBtn.grid(column=0, row=1, columnspan=2, pady=20)
 
     searchWIn.tkraise()
 
-# mainWindow()
+#run mainWindow() for full gui
+#mainWIndow()
 selector()
 
 if __name__ == '__main__':
