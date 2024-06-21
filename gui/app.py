@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 from tkinter import *
 from tkinter import messagebox
+import tkinter.ttk as ttk
 from tkinter.messagebox import askyesno
 import sqlite3 as sq
 import hashlib
@@ -19,7 +20,7 @@ root.rowconfigure(0, weight=1)
 #main window Frame
 def mainWindow():
 
-    #login function
+    # #login function
     def login():
         #for practice purpose, user='didi123', password=didipassword
         #using sqlite3 to store login info in database
@@ -66,9 +67,10 @@ def mainWindow():
     welcome_text.grid(column=0, row=0, columnspan=2, pady=15)
 
     #login button
-    log_btn = Button(loginFrame, text='Login', bg='#581845', fg='#ff6eeb', font=('arial', 11), command=login)
+    log_btn = ttk.Button(loginFrame, text='Login', bg='#581845', fg='#ff6eeb', font=('arial', 11), command=login)
     log_btn.grid(column=0, row=3, columnspan=2, pady=12)
 
+    log_btn.bind('<Return>', login)
     mainWin.tkraise()
 
 
