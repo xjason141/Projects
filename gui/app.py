@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 from tkinter import *
 from tkinter import messagebox
-import tkinter.ttk as ttk
 from tkinter.messagebox import askyesno
 import sqlite3 as sq
 import hashlib
@@ -17,21 +16,18 @@ root.columnconfigure(0, weight=1)
 root.rowconfigure(0, weight=1)
 
 
-#main window Frame
-def mainWindow():
-
-    # #login function
-    def login():
+#login function
+def login(u, p):
         #for practice purpose, user='didi123', password=didipassword
         #using sqlite3 to store login info in database
         conn = sq.connect('gui/info.db')
         cur = conn.cursor()
 
-        user = userEntry.get()
-        password = passEntry.get()
-        hashed = hashlib.sha256(password.encode()).hexdigest()
+        theUser = u.get()
+        thePassword = p.get()
+        hashed = hashlib.sha256(thePassword.encode()).hexdigest()
 
-        cur.execute('SELECT user FROM loginInfo WHERE user=? AND password=?', (user, hashed))
+        cur.execute('SELECT user FROM loginInfo WHERE user=? AND password=?', (theUser, hashed))
         check = cur.fetchone()
 
         if check:
@@ -39,6 +35,8 @@ def mainWindow():
         else:
             messagebox.showerror(title='Failed', message='Invalid Username or Password')
 
+#main window Frame
+def mainWindow():
 
     #main window to store login frame and widgets
     mainWin = Frame(root, bg='#581845')
@@ -67,10 +65,11 @@ def mainWindow():
     welcome_text.grid(column=0, row=0, columnspan=2, pady=15)
 
     #login button
-    log_btn = ttk.Button(loginFrame, text='Login', bg='#581845', fg='#ff6eeb', font=('arial', 11), command=login)
+    log_btn = Button(loginFrame, text='Login', bg='#581845', fg='#ff6eeb', font=('arial', 11), command=lambda u=userEntry, p=passEntry: login(u, p))
     log_btn.grid(column=0, row=3, columnspan=2, pady=12)
+    root.bind('<Return>', lambda event, u=userEntry, p=passEntry: login(u, p))
 
-    log_btn.bind('<Return>', login)
+    # root.bind('g', login)
     mainWin.tkraise()
 
 
