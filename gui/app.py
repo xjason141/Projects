@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 from tkinter import *
 from tkinter import messagebox
+from tkinter.messagebox import askyesno
 import sqlite3 as sq
 import hashlib
 import datetime as dt
+
 
 #main app
 root = Tk()
@@ -32,7 +34,7 @@ def mainWindow():
         check = cur.fetchone()
 
         if check:
-            guestWindow()
+            selector()
         else:
             messagebox.showerror(title='Failed', message='Invalid Username or Password')
 
@@ -70,8 +72,16 @@ def mainWindow():
     mainWin.tkraise()
 
 
-#update guest-list or search for guest info
+#select either to register guest or search for guest
 def selector():
+
+    #logout confirmation function
+    def confirm():
+        answer = askyesno(title='confirmation',
+                          message='Are you sure you want to log out?')
+        
+        if answer:
+            mainWindow()
 
     #window
     selectWIndow = Frame(root, bg='grey')
@@ -82,16 +92,20 @@ def selector():
 
     #update guest list
     toUpdate = Button(selectorFrame, text='Register Guest',command=guestWindow)
-    toUpdate.grid(column=0, row=0, padx=(0,30))
+    toUpdate.grid(column=0, row=0, padx=(0,30), pady=(5,0))
 
     #search for guest
     toSearch = Button(selectorFrame, text='Search for Guest', command=search)
-    toSearch.grid(column=1, row=0, padx=(30,0))    
-    
+    toSearch.grid(column=1, row=0, padx=(30,0), pady=(5,0))
+
+    #logout button
+    logoutBtn = Button(selectorFrame, text='Log Out', font=('arial', 11), command=confirm)
+    logoutBtn.grid(column=0, row=1, columnspan=2, pady=(70,0))
+
     selectWIndow.tkraise()
 
 
-#update guest list
+#register guest
 def guestWindow():
     curr_date = dt.datetime.now().strftime('%d-%b-%Y')
     curr_time = dt.datetime.now().strftime('%H:%M')
@@ -153,10 +167,6 @@ def guestWindow():
     reasonEntry = Entry(guestFrame, textvariable=StringVar())
     reasonEntry.grid(column=3, row=2, pady=5)
 
-    #logout button
-    # logoutBtn = Button(guestFrame, text='Logout', command=mainWindow)
-    # logoutBtn.grid(column=0, row=3, columnspan=2, pady=12)
-
     guestWin.tkraise()
 
 
@@ -186,8 +196,7 @@ def search():
     searchWIn.tkraise()
 
 #run mainWindow() for full gui
-#mainWIndow()
-selector()
+mainWindow()
 
 if __name__ == '__main__':
     root.mainloop()
