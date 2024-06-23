@@ -90,13 +90,14 @@ def options(filepath):
 
 def main(filepath):
     to_do = ('Opt 1: Update', 'Opt 2: Retrieve')
-    print(', '.join(to_do))
+    joined = (', '.join(to_do))
 
     decision = int(input("Press 1 or 2: "))
     try:
         while decision !=1 and decision !=2:
-            print('Invalid option')
-            print(', '.join(to_do))
+            print('Invalid option\n' + joined)
+            # print('Invalid option')
+            # print(', '.join(to_do))
             decision = int(input("Press 1 or 2: "))
         if decision == 1:
             options(filepath)

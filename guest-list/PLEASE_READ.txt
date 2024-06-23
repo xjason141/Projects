@@ -22,3 +22,6 @@
 2. NOTE: App may be not be clear of bugs due to limited testing.
 3. Currently working on learning to create UI for the app.
 4. UI for app is currently being done in a different directory i.e: Projects/gui.
+
+23/06/2024
+1. Deleted files related to using csv. Only json related files remain in this dir.
