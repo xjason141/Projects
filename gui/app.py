@@ -5,7 +5,6 @@ from tkinter.messagebox import askyesno
 import sqlite3 as sq
 import hashlib
 import datetime as dt
-import main as mn
 
 #main app
 root = Tk()

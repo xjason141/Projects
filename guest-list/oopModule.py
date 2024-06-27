@@ -26,26 +26,41 @@ class Guests:
             #     raise Exception
             
         except ValueError as error:
-            # print(type(error).__name__ + ': Invalid ID.')
             sys.exit(type(error).__name__ + ': Invalid ID.')
         except Exception:
-            # print('ID must include only 12 characters.')
             sys.exit('ID must include only 12 characters.')
 
     
     #transform guest info into dict
-    def asdict(self):
+    def main(self):
         transform = {'date': self.date, 'time': self.time, 'name': self.name, 'id': self.id, 'plate': self.plate, 'reason': self.reason, 'address': self.address}
         to_dict = {'guests': [transform]}
 
         with open(filepath, 'w') as writer:
             json.dump(to_dict, writer, indent=2)
         return 'New file created. Guest has been registered.'
-        
+    
+
+class Updater(Guests):
+    def update(self):
+        to_dict = {'date': self.date, 'time': self.time, 'name': self.name, 'id': self.id, 'plate': self.plate, 'reason': self.reason, 'address': self.address}
+
+        with open(filepath, 'r') as f:
+            data = json.load(f)
+            data['guests'].append(to_dict)
+
+        with open(filepath, 'w') as f:
+            json.dump(data, f, indent=2)
+        return 'success'
+
+class mainApp():
+    def do(self):
+        Updater().update()
+        return 'yessir'
 
         
 
-filepath = 'gui/guests.json'
+filepath = 'guest-list/new_guest.json'
 if __name__ == '__main__':
-    x = Guests()
-    print(x.asdict())
+    x = mainApp()
+    print(x.do())
