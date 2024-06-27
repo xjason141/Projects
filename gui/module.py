@@ -1,7 +1,9 @@
-#class for guests
+
 import sys
 
-class Guests: #class name must always start with a capital letter
+class Guests:
+    #set current time and date
+
     def __init__(self, date, time, name, id, plate, reason, address):
         try:
             self.date = date
@@ -27,4 +29,6 @@ class Guests: #class name must always start with a capital letter
 
     def asdict(self): #method is to enable guest info to become a dict
         return {'date': self.date, 'time': self.time, 'name': self.name, 'id': self.id, 'plate': self.plate, 'reason': self.reason, 'address': self.address}
+
+
     

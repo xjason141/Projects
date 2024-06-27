@@ -5,7 +5,7 @@ from tkinter.messagebox import askyesno
 import sqlite3 as sq
 import hashlib
 import datetime as dt
-
+import main as mn
 
 #main app
 root = Tk()
@@ -14,7 +14,6 @@ root.minsize(1000,650)
 root.configure(bg='#581845')
 root.columnconfigure(0, weight=1)
 root.rowconfigure(0, weight=1)
-
 
 #login function
 def login(u, p):
