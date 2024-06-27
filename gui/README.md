@@ -11,3 +11,8 @@
 
 09/June/2024
 1. Using sqlite3 to create dtb.py to create a database to store login info.
+
+27/06/2024
+1. Sudden realization. "main.py" script is now a separate app/project from gui.
+2. gui is now an app based on the concept of guest-list. Only difference is gui has an interface, guest-list is a script.
+3. Refactoring "main.py" for guest-list into OOP. filename is "oopModule.py"
