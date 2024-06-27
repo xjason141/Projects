@@ -36,10 +36,16 @@ class Guests:
     #transform guest info into dict
     def asdict(self):
         transform = {'date': self.date, 'time': self.time, 'name': self.name, 'id': self.id, 'plate': self.plate, 'reason': self.reason, 'address': self.address}
-        to_dict = {'guests': transform}
-        return to_dict
+        to_dict = {'guests': [transform]}
+
+        with open(filepath, 'w') as writer:
+            json.dump(to_dict, writer, indent=2)
+        return 'New file created. Guest has been registered.'
         
 
+        
 
-x = Guests()
-print(x.asdict())
+filepath = 'gui/guests.json'
+if __name__ == '__main__':
+    x = Guests()
+    print(x.asdict())
