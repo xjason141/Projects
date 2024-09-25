@@ -26,6 +26,15 @@
       "plate": "JGK123",
       "reason": "Work",
       "address": "24, lost 65"
+    },
+    {
+      "date": "25-Sep-2024",
+      "time": "14:56",
+      "name": "Didi",
+      "id": "123456789098",
+      "plate": "VMB234",
+      "reason": "Work",
+      "address": "12, vilda 34"
     }
   ]
 }

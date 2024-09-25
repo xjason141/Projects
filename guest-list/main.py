@@ -8,26 +8,6 @@ import os
 curr_time = datetime.datetime.now().strftime('%H:%M')
 curr_date = datetime.datetime.now().strftime('%d-%b-%Y')
 
-#initial start up if json file does not exist
-# def initial(filepath):
-#     print("Please register here")
-#     guest = Guests(
-#         date=curr_date,
-#         time=curr_time,
-#         name=input('Name: ').capitalize(),
-#         id=input('ID: ' ),
-#         plate=input('Plate: ').upper(),
-#         reason=input('Reason: ').capitalize(),
-#         address=input('Address: ')
-#         )
-
-#     # prepare to load into json
-#     y = {'guests': [Guests.asdict(guest)]}
-
-#     with open(filepath, 'w') as guest_json:
-#         json.dump(y, guest_json, indent=2)
-#     print('New file created. Guest updated.')
-
 
 #updates/creates the guest list
 def updater(filepath):     
@@ -94,24 +74,15 @@ def retrieve(filepath):
             retrieve(filepath)
 
 
-#create new json or update existing json
-# def options(filepath):
-#     if os.path.exists(filepath):
-#         updater(filepath)
-#     else:
-#         initial(filepath)
-
 # runs everything
 def main(filepath):
-    to_do = ('Opt 1: Update', 'Opt 2: Retrieve')
+    to_do = ('1: Update', '2: Retrieve')
     joined = (', '.join(to_do))
     print(joined)
     try:
         decision = int(input("Press 1 or 2: "))
         while decision !=1 and decision !=2:
-            print('Invalid option\n' + joined)
-            # print('Invalid option')
-            # print(', '.join(to_do))
+            print('Invalid option. Please choose either option 1 or 2.\n' + joined)
             decision = int(input("Press 1 or 2: "))
         if decision == 1:
             updater(filepath)
@@ -120,6 +91,7 @@ def main(filepath):
             
     except ValueError as error:
         print(type(error).__name__ + ': Please choose either option 1 or 2.')
+        main(filepath)
 
 
 filepath = 'guest-list/guests.json'
