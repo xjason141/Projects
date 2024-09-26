@@ -46,13 +46,15 @@ def to_register():
         print('Invalid choice')
         choice = input('Do you want to register the guest? Y/N: ').upper()
     if choice == 'Y':
-        register(filepath)
+        updater(filepath)
     else:
         print('Goodbye')
 
 
 #retrieve guest info from guests.json
 def retrieve(filepath):
+    global to_update
+    to_update = []
     with open(filepath, 'r') as file:
         x = input('ID: ')
         try:
@@ -70,6 +72,7 @@ def retrieve(filepath):
             for guests in guest_data:
                 if x == guests['id']:
                     print('Guest info:\n{}\n{}\n{}\n{}\n{}'.format(guests['date'], guests['name'],guests['id'], guests['plate'], guests['address']))
+                    to_update = [guests['id']]
                 else:
                     count += 1
                 if count == len(guest_data):
@@ -82,6 +85,28 @@ def retrieve(filepath):
         except Exception:
             print('ID must include only 12 characters.')
             retrieve(filepath)
+
+
+def updater(filepath):
+    guest = Guests(
+        date=curr_date,
+        time=curr_time,
+        name=input('Name: ').capitalize(),
+        id=input('ID: '),
+        plate=input('Plate: ').upper(),
+        reason=input('Reason: ').capitalize(),
+        address=input('Address: ')
+        )
+    # if file exists, update only
+    y = Guests.asdict(guest)
+    if os.path.exists(filepath):
+        with open(filepath, 'r') as f:
+            data = json.load(f)
+            data['guests'].append(y)
+
+        with open(filepath, 'w') as f:
+            json.dump(data, f, indent=2)
+        print('Guest updated.')
 
 
 # runs everything

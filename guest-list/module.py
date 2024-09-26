@@ -23,7 +23,7 @@ class Guests: #class name must always start with a capital letter
             sys.exit(type(error).__name__ + ': Invalid ID.')
         except Exception:
             # print('ID must include only 12 characters.')
-            sys.exit('ID must include only 12 characters.')
+            sys.exit('ID must include only 12 characters. This is from module.')
 
     def asdict(self): #method is to enable guest info to become a dict
         return {'date': self.date, 'time': self.time, 'name': self.name, 'id': self.id, 'plate': self.plate, 'reason': self.reason, 'address': self.address}
