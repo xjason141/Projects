@@ -21,7 +21,7 @@ def updater(filepath):
         reason=input('Reason: ').capitalize(),
         address=input('Address: ')
         )
-    # if file exists, update only2
+    # if file exists, update only
     if os.path.exists(filepath):
         y = Guests.asdict(guest)
 
