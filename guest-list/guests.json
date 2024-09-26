@@ -35,6 +35,24 @@
       "plate": "VMB234",
       "reason": "Work",
       "address": "12, vilda 34"
+    },
+    {
+      "date": "26-Sep-2024",
+      "time": "14:47",
+      "name": "Feat test",
+      "id": "123456780912",
+      "plate": "ZXC098",
+      "reason": "Testing feature",
+      "address": "123, hollow 45"
+    },
+    {
+      "date": "26-Sep-2024",
+      "time": "14:48",
+      "name": "Fin test",
+      "id": "456789098765",
+      "plate": "KFL345",
+      "reason": "Sleep",
+      "address": "23, nova 12"
     }
   ]
 }

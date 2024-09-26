@@ -51,9 +51,11 @@ def to_register():
         print('Goodbye')
 
 
+to_update = []
 #retrieve guest info from guests.json
 def retrieve(filepath):
     with open(filepath, 'r') as file:
+        global x
         x = input('ID: ')
         try:
             data = json.load(file)
@@ -70,12 +72,14 @@ def retrieve(filepath):
             for guests in guest_data:
                 if x == guests['id']:
                     print('Guest info:\n{}\n{}\n{}\n{}\n{}'.format(guests['date'], guests['name'],guests['id'], guests['plate'], guests['address']))
+                    to_update
                 else:
                     count += 1
                 if count == len(guest_data):
                     print('Guest does not exist.')
                     to_register()
 
+                    
         except ValueError as error:
             print(type(error).__name__ + ': Invalid ID. ID should only be numbers.')
             retrieve(filepath)
