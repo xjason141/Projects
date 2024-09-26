@@ -34,5 +34,5 @@
 25/9/2024
 1. able to continue project while carrying out internship. only when there is little work.
 
-30/9/2024
+26/9/2024
 1. Added a function to register guest if guest does not exist in json.
