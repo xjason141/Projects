@@ -53,30 +53,30 @@ def to_register():
 
 #retrieve guest info from guests.json
 def retrieve(filepath):
-    global to_update
-    to_update = []
+    global to_check
     with open(filepath, 'r') as file:
-        x = input('ID: ')
+        to_check = input('ID: ')
         try:
             data = json.load(file)
             guest_data = data['guests']
             count = 0
             
             #transform user input to int. raises ValueError if not int
-            int(x)
+            int(to_check)
 
             #check user input length
-            if len(x) != 12:
+            if len(to_check) != 12:
                 raise Exception
 
             for guests in guest_data:
-                if x == guests['id']:
+                if to_check == guests['id']:
                     print('Guest info:\n{}\n{}\n{}\n{}\n{}'.format(guests['date'], guests['name'],guests['id'], guests['plate'], guests['address']))
-                    to_update = [guests['id']]
+                    # print(len(to_update))
                 else:
                     count += 1
                 if count == len(guest_data):
                     print('Guest does not exist.')
+                    print('type of to check is: ', type(to_check))
                     to_register()
 
         except ValueError as error:
@@ -88,6 +88,7 @@ def retrieve(filepath):
 
 
 def updater(filepath):
+    print('type of to_check is ', type(to_check))
     guest = Guests(
         date=curr_date,
         time=curr_time,
@@ -98,6 +99,7 @@ def updater(filepath):
         address=input('Address: ')
         )
     # if file exists, update only
+
     y = Guests.asdict(guest)
     if os.path.exists(filepath):
         with open(filepath, 'r') as f:
