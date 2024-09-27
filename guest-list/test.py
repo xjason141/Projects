@@ -5,6 +5,7 @@ import datetime
 import json
 import os
 
+
 curr_time = datetime.datetime.now().strftime('%H:%M')
 curr_date = datetime.datetime.now().strftime('%d-%b-%Y')
 
@@ -21,6 +22,7 @@ def register(filepath):
         reason=input('Reason: ').capitalize(),
         address=input('Address: ')
         )
+    
     # if file exists, update only
     y = Guests.asdict(guest)
     if os.path.exists(filepath):
@@ -46,14 +48,14 @@ def to_register():
         print('Invalid choice')
         choice = input('Do you want to register the guest? Y/N: ').upper()
     if choice == 'Y':
-        updater(filepath)
+        non_exist_updater(filepath)
     else:
         print('Goodbye')
 
 
 #retrieve guest info from guests.json
 def retrieve(filepath):
-    global to_check
+    global to_update
     with open(filepath, 'r') as file:
         to_check = input('ID: ')
         try:
@@ -68,15 +70,26 @@ def retrieve(filepath):
             if len(to_check) != 12:
                 raise Exception
 
+            # main checking part of the function
             for guests in guest_data:
+                # check if any id is similar to the one from user input. and decide whether to update the list or not 
                 if to_check == guests['id']:
                     print('Guest info:\n{}\n{}\n{}\n{}\n{}'.format(guests['date'], guests['name'],guests['id'], guests['plate'], guests['address']))
-                    # print(len(to_update))
+                    choice = input('Do you want to register the guest? Y/N: ').upper()
+                    while choice != 'Y' and choice != 'N':
+                        print('Invalid choice')
+                        choice = input('Do you want to register the guest? Y/N: ').upper()
+
+                    # if guest exists and want to update, run exist_updater(filepath) 
+                    if choice == 'Y':
+                        to_update = [guests['name'], guests['id']]
+                        exist_updater(filepath)
+                    else:
+                        print('Goodbye')
                 else:
                     count += 1
                 if count == len(guest_data):
                     print('Guest does not exist.')
-                    print('type of to check is: ', type(to_check))
                     to_register()
 
         except ValueError as error:
@@ -86,9 +99,8 @@ def retrieve(filepath):
             print('ID must include only 12 characters.')
             retrieve(filepath)
 
-
-def updater(filepath):
-    print('type of to_check is ', type(to_check))
+# to update the list if guest does not exist in the list
+def non_exist_updater(filepath):
     guest = Guests(
         date=curr_date,
         time=curr_time,
@@ -98,7 +110,28 @@ def updater(filepath):
         reason=input('Reason: ').capitalize(),
         address=input('Address: ')
         )
-    # if file exists, update only
+    
+    y = Guests.asdict(guest)
+    if os.path.exists(filepath):
+        with open(filepath, 'r') as f:
+            data = json.load(f)
+            data['guests'].append(y)
+
+        with open(filepath, 'w') as f:
+            json.dump(data, f, indent=2)
+        print('Guest updated.')
+
+# to update the list if guest exist. guest's name and id will be retrieved from retrieve(filepath). no need for user input
+def exist_updater(filepath):
+    guest = Guests(
+        date=curr_date,
+        time=curr_time,
+        name=to_update[1], #retrieved from retrieve(filepath)
+        id=to_update[1], #retrieved from retrieve(filepath)
+        plate=input('Plate: ').upper(),
+        reason=input('Reason: ').capitalize(),
+        address=input('Address: ')
+        )
 
     y = Guests.asdict(guest)
     if os.path.exists(filepath):

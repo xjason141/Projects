@@ -53,6 +53,24 @@
       "plate": "KFL345",
       "reason": "Sleep",
       "address": "23, nova 12"
+    },
+    {
+      "date": "27-Sep-2024",
+      "time": "15:49",
+      "name": "Didi",
+      "id": "980212145399",
+      "plate": "LKJ678",
+      "reason": "Bug test",
+      "address": "25, 141 holo"
+    },
+    {
+      "date": "27-Sep-2024",
+      "time": "16:48",
+      "name": "980212145399",
+      "id": "980212145399",
+      "plate": "NBN123",
+      "reason": "Hhoo",
+      "address": "12, holo 12"
     }
   ]
 }
