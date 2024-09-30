@@ -71,6 +71,51 @@
       "plate": "NBN123",
       "reason": "Hhoo",
       "address": "12, holo 12"
+    },
+    {
+      "date": "30-Sep-2024",
+      "time": "08:53",
+      "name": "Dodi",
+      "id": "454384950688",
+      "plate": "JGO123",
+      "reason": "Morning",
+      "address": "45, holo 12"
+    },
+    {
+      "date": "30-Sep-2024",
+      "time": "08:53",
+      "name": "980212145399",
+      "id": "980212145399",
+      "plate": "NBM456",
+      "reason": "Hollowing",
+      "address": "45, gojo 23"
+    },
+    {
+      "date": "30-Sep-2024",
+      "time": "09:39",
+      "name": "Didi",
+      "id": "980212145399",
+      "plate": "GHJ123",
+      "reason": "Bug test",
+      "address": "45, fofo 23"
+    },
+    {
+      "date": "30-Sep-2024",
+      "time": "09:53",
+      "name": "Didi",
+      "id": "980212145399",
+      "plate": "VBN123",
+      "reason": "Exist test",
+      "address": "12, exist 45"
+    },
+    {
+      "date": "30-Sep-2024",
+      "time": "09:56",
+      "name": "Ghost",
+      "id": "000000000000",
+      "plate": "BOO123",
+      "reason": "Ghosting",
+      "address": "12, haunted 45"
     }
   ]
 }
