@@ -33,43 +33,6 @@ def login(u, p):
         else:
             messagebox.showerror(title='Failed', message='Invalid Username or Password')
 
-#main window Frame
-def mainWindow():
-
-    #main window to store login frame and widgets
-    mainWin = Frame(root, bg='#581845')
-    mainWin.grid(column=0, row=0, sticky=NSEW)
-
-    #login widgets in here
-    loginFrame = Frame(mainWin, bg='#581845')
-    loginFrame.place(relx=0.5, rely=0.5, anchor=CENTER)
-
-    #username and entry box
-    userLabel = Label(loginFrame, text='Username', padx=10, bg='#581845', fg='#FFFFFF', font=('arial', 11))
-    username = StringVar()
-    userEntry = Entry(loginFrame, textvariable=username)
-    userLabel.grid(column=0, row=1)
-    userEntry.grid(column=1, row=1, pady=5)
-
-    #password and entry box
-    passLabel = Label(loginFrame, text='Password', pady=10, bg='#581845', fg='#FFFFFF', font=('arial', 11))
-    password = StringVar()
-    passEntry = Entry(loginFrame, textvariable=password, show='*')
-    passLabel.grid(column=0, row=2)
-    passEntry.grid(column=1, row=2, pady=5)
-
-    #welcome text
-    welcome_text = Label(loginFrame, text='Welcome', bg='#581845', fg='#ff6eeb', font=('arial', 20))
-    welcome_text.grid(column=0, row=0, columnspan=2, pady=15)
-
-    #login button
-    log_btn = Button(loginFrame, text='Login', bg='#581845', fg='#ff6eeb', font=('arial', 11), command=lambda u=userEntry, p=passEntry: login(u, p))
-    log_btn.grid(column=0, row=3, columnspan=2, pady=12)
-    root.bind('<Return>', lambda event, u=userEntry, p=passEntry: login(u, p))
-
-    # root.bind('g', login)
-    mainWin.tkraise()
-
 
 #select either to register guest or search for guest
 def selector():
@@ -103,6 +66,43 @@ def selector():
 
     selectWIndow.tkraise()
 
+#main window Frame
+def mainWindow():
+
+    #main window to store login frame and widgets
+    mainWin = Frame(root, bg='#581845')
+    mainWin.grid(column=0, row=0, sticky=NSEW)
+
+    #login widgets in here
+    loginFrame = Frame(mainWin, bg='#581845')
+    loginFrame.place(relx=0.5, rely=0.5, anchor=CENTER)
+
+    #username and entry box
+    userLabel = Label(loginFrame, text='Username', padx=10, bg='#581845', fg='#FFFFFF', font=('arial', 11))
+    username = StringVar()
+    userEntry = Entry(loginFrame, textvariable=username)
+    userLabel.grid(column=0, row=1)
+    userEntry.grid(column=1, row=1, pady=5)
+
+    #password and entry box
+    passLabel = Label(loginFrame, text='Password', pady=10, bg='#581845', fg='#FFFFFF', font=('arial', 11))
+    password = StringVar()
+    passEntry = Entry(loginFrame, textvariable=password, show='*')
+    passLabel.grid(column=0, row=2)
+    passEntry.grid(column=1, row=2, pady=5)
+
+    #welcome text
+    welcome_text = Label(loginFrame, text='Welcome', bg='#581845', fg='#ff6eeb', font=('arial', 20))
+    welcome_text.grid(column=0, row=0, columnspan=2, pady=15)
+
+    #login button
+    log_btn = Button(loginFrame, text='Login', bg='#581845', fg='#ff6eeb', font=('arial', 11), command=lambda u=userEntry, p=passEntry: login(u, p))
+    log_btn.grid(column=0, row=3, columnspan=2, pady=12)
+    root.bind('<Return>', lambda event, u=userEntry, p=passEntry: login(u, p)) #binds 'Enter' key to press Login Button
+
+    # root.bind('g', login)
+    mainWin.tkraise()
+    
 
 #register guest
 def guestWindow():
