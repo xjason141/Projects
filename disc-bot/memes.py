@@ -8,26 +8,32 @@ from dotenv import load_dotenv
 # set bot token and channel ID
 load_dotenv()
 BOT_TOKEN = os.getenv('BOT_TOKEN')
-CHL_ID = os.getenv('CHANNEL_TOKEN')
+CHL_ID = os.getenv('CHL_ID')
 
 # set prefix
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
 
+@bot.event
+async def on_ready(): #on_ready is a preset from discordpy. go read documentation for more info
+    channel = bot.get_channel(int(CHL_ID))
+    await channel.send('HI there')
+
+
 # greets the users
 @bot.command()
 async def fl(ctx):
-    channel = bot.get_channel(CHL_ID)
+    channel = bot.get_channel(int(CHL_ID))
     await channel.send('Hello Lexdomo.')
 
 @bot.command()
 async def fn(ctx):
-    channel = bot.get_channel(CHL_ID)
+    channel = bot.get_channel(int(CHL_ID))
     await channel.send('Hello Lala.')
 
 @bot.command()
 async def fd(ctx):
-    channel = bot.get_channel(CHL_ID)
+    channel = bot.get_channel(int(CHL_ID))
     await channel.send('Hello Didi.')
 
 
