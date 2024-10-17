@@ -14,12 +14,6 @@ CHL_ID = os.getenv('CHL_ID')
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
 
-@bot.event
-async def on_ready(): #on_ready is a preset from discordpy. go read documentation for more info
-    channel = bot.get_channel(int(CHL_ID))
-    await channel.send('HI there')
-
-
 # greets the users
 @bot.command()
 async def fl(ctx):
@@ -134,7 +128,7 @@ async def cmds(ctx):
         \n5. !sad = returns a random sad anime gif 
         \n6. !shock = returns a random shock anime gif 
         \n7. !bruh = returns a random disappoint anime gif
-''')
+        ''')
 
 run = bot.run(BOT_TOKEN)
 
