@@ -11,8 +11,10 @@ def excel():
     addr_path = 'filepath'
 
     # open the files
-    os.startfile(tp_path)
     os.startfile(calc_path)
+    sleep(5)
+    os.startfile(tp_path)
+    sleep(5)
     os.startfile(addr_path)
 
 
