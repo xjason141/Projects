@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 # set bot token and channel ID
 load_dotenv()
 BOT_TOKEN = os.getenv('BOT_TOKEN')
-CHL_ID = os.getenv('CHL_ID')
+CHL_ID = os.getenv('MAIN_CHL')
 
 # set prefix
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
