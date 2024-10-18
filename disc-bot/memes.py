@@ -13,6 +13,11 @@ CHL_ID = os.getenv('MAIN_CHL')
 # set prefix
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
+@bot.event
+async def on_ready():
+    chl = bot.get_channel(CHL_ID)
+    await chl.send('hello there user')
+
 
 # greets the users
 @bot.command()
