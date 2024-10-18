@@ -13,10 +13,11 @@ CHL_ID = os.getenv('MAIN_CHL')
 # set prefix
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
+# says hi when bot goes online
 @bot.event
 async def on_ready():
     chl = bot.get_channel(int(CHL_ID))
-    await chl.send('hello there user')
+    await chl.send('Hey there. I\'m ready to go.')
 
 
 # greets the users
