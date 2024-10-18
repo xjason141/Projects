@@ -15,7 +15,7 @@ bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
 @bot.event
 async def on_ready():
-    chl = bot.get_channel(CHL_ID)
+    chl = bot.get_channel(int(CHL_ID))
     await chl.send('hello there user')
 
 
