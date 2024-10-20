@@ -1,14 +1,16 @@
 import os
 import webbrowser
 from time import sleep
+from dotenv import load_dotenv
 
 # open excel files.
+load_dotenv()
 def excel():
     # set path for files that need opening.
     # add paths according to your needs
-    tp_path = 'filepath'
-    calc_path = 'filepath'
-    addr_path = 'filepath'
+    tp_path = os.getenv('TP_PATH')
+    calc_path = os.getenv('CALC_PATH')
+    addr_path = os.getenv('ADDR_PATH')
 
     # open the files
     os.startfile(calc_path)
@@ -31,7 +33,6 @@ def runner():
     browser()
 
 # runner.
-if __name__ == '__main__':
-    runner()
+runner()
 
 
