@@ -1,0 +1,1 @@
+Trying to improve Javascript by recreating the guest-list from Python project in JS
