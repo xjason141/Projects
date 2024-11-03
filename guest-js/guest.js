@@ -11,18 +11,28 @@ class Guest {
         this.address = address;
     };
 
-    register() {
-        console.log("Please register here");
+    upperCase() {
+        const ask = prompt("Name: ");
+        const first = ask[0].toUpperCase();
+        return first + ask.substring(1);
 
-        this.date = prompt("Date: ");
-        this.time = prompt("Time: ");
-        this.name = prompt("Name: ");
+    };
+
+    register() {
+        const currDate = new Date();
+        const whichAmPm = (currDate.getHours() >= 12) ? 'PM':'AM';
+
+        console.log("Please register here.");
+
+        this.date = `${currDate.getDate()}/${currDate.getMonth() + 1}/${currDate.getFullYear()}`;
+        this.time = `${currDate.getHours()}:${currDate.getMinutes()} ${whichAmPm}`;
+        this.name = this.upperCase();
         this.id = prompt("ID: ");
-        this.plate = prompt("Plate: ");
+        this.plate = prompt("Plate: ").toUpperCase();
         this.reason = prompt("Reason: ");
         this.address = prompt("Address: ");
 
-        console.log(`Guest ${this.name} has been registered`);
+        console.log(`Guest ${this.name} has been registered on ${this.date} at ${this.time}.`);
 
         // const id_check = parseFloat(this.id);
         // if (id_check == false || id_check.length != 12 ? "ID should be numbers only.": "ID too long or too short.") 
@@ -31,5 +41,4 @@ class Guest {
     }
 };
 
-const g1 = new Guest().register();
-// console.log(g1.register.this.name)
+const g = new Guest().register();
