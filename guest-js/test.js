@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 let myname = 'Jim';
 console.log(`Hello there ${myname}`);const prompt = require("prompt-sync")();
 
@@ -41,3 +42,13 @@ class Guest {
 
 const g1 = new Guest().register();
 // console.log(g1.register.this.name)
+=======
+const upperCase = (guestName) => {
+    const first = guestName[0].toUpperCase();
+    return upperName = first + guestName.substring(1);
+
+};
+
+const myname = 'jimmy';
+myname.upperCase()
+>>>>>>> refs/remotes/origin/master
