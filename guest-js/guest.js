@@ -64,12 +64,6 @@ class Guest {
         } catch (error) {
             console.log(error)
         }
-
-        // console.log(`Guest ${this.name} has been registered on ${this.date} at ${this.time}.`);
-        // console.log(toJson[0].Reason)
-
-
-        // console.log(this.name);
     }
 };
 
