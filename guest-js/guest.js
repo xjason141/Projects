@@ -1,4 +1,7 @@
 const prompt = require("prompt-sync")();
+const data = require("./guest.json");
+const fs = require("fs");
+const filepath = "./guest.json";
 
 class Guest {
     constructor(date, time, name, id, plate, reason, address) {
@@ -24,8 +27,22 @@ class Guest {
         const values = [this.date, this.time, this.name, this.id, this.plate, this.reason, this.address];
         const [The_Date, Time, Name, ID, Plate, Reason, Address] = values;
         const dicted = {The_Date, Time, Name, ID, Plate, Reason, Address}
+
         toJson.push(dicted);
-        console.log(`Guest ${Name} arrived at ${Time} on ${The_Date}.`);
+
+        // const jsonString = JSON.stringify(toJson);
+
+        fs.writeFile(filepath, JSON.stringify(toJson), err => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log('Success');
+            }
+        })
+
+        // console.log(`Guest ${Name} arrived at ${Time} on ${The_Date}.`);
+        // console.log(jsonString);
+        return toJson;
     };
 
     // IdCheck
@@ -37,6 +54,22 @@ class Guest {
             // console.log(id_check.toString().length);
             throw new Error('Id too short');
         };
+    };
+
+    // load JSON file
+    reading = (filepath) => {
+        fs.readFile(filepath, 'utf-8', (err, jsonString) => {
+            if (err) {
+                console.log(err);
+            } else {
+                try {
+                    const read_data = JSON.parse(jsonString);
+                    console.log(read_data);
+                } catch {
+                    console.log(err)
+                }
+            }
+        });
     };
 
     // Main register function
@@ -59,7 +92,7 @@ class Guest {
             this.idCheck(this.id);
 
             // if valid, data transformed into obj
-            this.toDict();
+            const transposed = this.toDict();
 
         } catch (error) {
             console.log(error)
