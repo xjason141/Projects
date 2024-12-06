@@ -3,6 +3,8 @@ const data = require("./guest.json");
 const fs = require("fs");
 const filepath = "./guest.json";
 
+// BUG IN APP. NEW GUEST INFO OVERWRITES THE PREVIOUS DATA IN JSON FILE.
+
 class Guest {
     constructor(date, time, name, id, plate, reason, address) {
         this.date = date;
